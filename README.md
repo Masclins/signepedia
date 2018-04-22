@@ -1,0 +1,2 @@
+# ensignepedia
+Diccionari Català - LSC
