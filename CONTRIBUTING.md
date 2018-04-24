@@ -1,6 +1,12 @@
 # Contribuir
 El funcionament del projecte es basa en crear *Issues* i fer *Pull-requests* que els solucionin.
 
+## Vocabulari
+Tot el vocabulari que afegim (de moment) ha de seguir el següent format:
+* El nom de l'arxiu serà la paraula definida.
+* Tot serà en minúscules i sense accents.
+* El format serà mp4.
+
 ## Issues
 Totes les *issues* que es creïn hauràn de començar amb un verb en infinitiu que descrigui la principal acció a prendre per solucionar un problema. El problema haurà d'estar explicat en el cos de l'*issue*.
 
