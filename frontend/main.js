@@ -1,11 +1,11 @@
 function retorna(url) {
     var el = document.getElementById("resultat");
     if (url == "SenseResultat") {
-        el.innerHTML = "No la tenim registrada";
+        el.innerHTML += "No la tenim registrada";
     } else {
-        el.innerHTML =
-            "<video width='320' height='240' controls>" +
-            "<source src='" + url + "' type='video/mp4'>" +
+        el.innerHTML +=
+            "<video width='320' height='240' controls autoplay muted>" +
+            "<source src='" + url + "'>" +
             "</video>";
     }
 }
