@@ -4,7 +4,7 @@ El funcionament del projecte es basa en crear *Issues* i fer *Pull-requests* que
 ## Vocabulari
 Tot el vocabulari que afegim (de moment) ha de seguir el següent format:
 * El nom de l'arxiu serà la paraula definida.
-* Tot serà en minúscules i sense accents.
+* El nom de l'arxiu estarà en minúscules.
 * El format serà mp4.
 
 ## Issues
@@ -24,6 +24,6 @@ El desenvolupament del *backend* és en Python3. A més cal instalar els paquets
 Els canvis de desenvolupament hauràn d'anar acompanyats de tests unitaris per a cadascuna de les funcions.
 
 ## Ús (Linux)
-Des del `backend/` cal mantenir executat `FLASK_APP=buscador.py python3 -m flask run`
+Des del `backend/` cal mantenir executat `FLASK_APP=cercador.py python3 -m flask run`
 
 La web es troba a `frontend/main.html`
