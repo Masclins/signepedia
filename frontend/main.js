@@ -1,20 +1,31 @@
-function retorna(url) {
+function mostra_entrada(entrada) {
+    var entrada = JSON.parse(entrada);
+    
     var el = document.getElementById("resultat");
-    if (url == "SenseResultat") {
-        el.innerHTML += "No la tenim registrada";
+    if (entrada.url == "SenseResultat") {
+        el.innerHTML = 'No tenim "' + entrada.paraula + '" registrada';
     } else {
-        el.innerHTML +=
-            "<video width='320' height='240' controls autoplay muted>" +
-            "<source src='" + url + "'>" +
-            "</video>";
+        if (entrada.origen == "youtube") {
+            el.innerHTML = html_youtube(entrada.url);
+        } else {
+            el.innerHTML = html_video(entrada.url);
+        }
     }
 }
 
-var idx = location.href.indexOf("=");
-if (idx !== -1) {
-    var paraula = location.href.substring(idx+1); //agafa tot el que hi ha després del '='
+function obte_paraula () {
+    var idx = location.href.indexOf("=");
+    if (idx !== -1) {
+        return location.href.substring(idx+1); //agafa tot el que hi ha després del '='
+    } else {
+        return ""
+    }
+}
+
+var paraula = obte_paraula();
+if (paraula != "") {
     httpGetAsync(
             "http://127.0.0.1:5000/diccionari/" + paraula,
-            retorna); //GET 
+            mostra_entrada); //GET 
 }
 

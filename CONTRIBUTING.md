@@ -2,12 +2,12 @@
 El funcionament del projecte es basa en crear *Issues* i fer *Pull-requests* que els solucionin.
 
 ## Vocabulari
-Tot el vocabulari que afegim (de moment) ha de seguir el següent format:
-* El nom de l'arxiu serà la paraula definida.
-* El nom de l'arxiu estarà en minúscules.
-* El format serà mp4.
+El vocabulari ha d'estar tot present a `backend/diccionari.csv`. Per afegiri-hi una nova paraula caldrà fer-ho en una nova línea, de la seguent manera, segons on estigui allotjat el video.
+* Si és al repositori (carpeta `backend/videos`): `"paraula_en_minúscules","../backend/videos/nom_del_video"`
+* Si és a la xarxa, i en format de video: `"paraula_en_minúscules","url"`
+* Si és a youtube: `"paraula_en_minúscules","url_d'incersió", "youtube"`. La url d'incersió és del tipus `http://www.youtube.com/embed/` seguit del codi del video.
 
-## Issues
+### Issues
 Totes les *issues* que es creïn hauràn de començar amb un verb en infinitiu que descrigui la principal acció a prendre per solucionar un problema. El problema haurà d'estar explicat en el cos de l'*issue*.
 
 Per tal d'evitar que més d'una persona estigui treballant en sol·lucionar el mateix problema, caldrà assignar-se aquelles *issues* en que un estigui treballant. Es prega no assignar-se múltiples *issues* alhora.
