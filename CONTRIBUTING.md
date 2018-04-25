@@ -21,7 +21,8 @@ El desenvolupament del *backend* és en Python3. A més cal instalar els paquets
 * flask-cors
 
 ### Tests unitaris
-Els canvis de desenvolupament hauràn d'anar acompanyats de tests unitaris per a cadascuna de les funcions.
+Els canvis de desenvolupament hauràn d'anar acompanyats de tests unitaris per a cadascuna de les funcions (o com a mínim les importants).
+Per executar els tests, a `backend/` cal executar la comanda `python3 -m unittest discover`
 
 ## Ús (Linux)
 Des del `backend/` cal mantenir executat `FLASK_APP=cercador.py python3 -m flask run`

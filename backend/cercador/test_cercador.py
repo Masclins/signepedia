@@ -1,11 +1,11 @@
-import cercador
+from cercador import cercador
 import unittest
 
 class ParaulesGuardades(unittest.TestCase):
 
     def test_senseresultat(self):
-        self.assertEqual(cercador.entrada("piñoàêü"), "SenseResultat")
-        self.assertEqual(cercador.entrada(""), "SenseResultat")
+        self.assertEqual(cercador.entrada("piñoàêü")[0], "SenseResultat")
+        self.assertEqual(cercador.entrada("")[0], "SenseResultat")
 
     def test_url(self):
         paraules = ("ós", "Ós", "conill", "lego")

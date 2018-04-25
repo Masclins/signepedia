@@ -9,4 +9,4 @@ def entrada(paraula):
             if (entrada["paraula"] == paraula):
                 return [entrada["url"], entrada["origen"]]
 
-        return "SenseResultat"
+        return ["SenseResultat", ""]
