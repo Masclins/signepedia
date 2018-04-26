@@ -15,11 +15,10 @@ function mostra_entrada(entrada) {
 
 function obte_paraula () {
     var idx = location.href.indexOf("=");
-    if (idx !== -1) {
-        return location.href.substring(idx+1); //agafa tot el que hi ha després del '='
-    } else {
-        return ""
-    }
+    if (idx === -1) { return ""; }
+    
+    var paraula = location.href.substring(idx+1); //agafa tot el que hi ha després del '='
+    return paraula.replace("+", " ");
 }
 
 var paraula = obte_paraula();
