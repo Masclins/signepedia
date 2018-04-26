@@ -2,6 +2,7 @@ from cercador import cercador
 from flask import Flask
 from flask import jsonify
 from flask_cors import CORS
+import requests
 app = Flask(__name__)
 CORS(app)
 

@@ -1,7 +1,7 @@
 from cercador import cercador
 import unittest
 
-class ParaulesGuardades(unittest.TestCase):
+class TestCercador(unittest.TestCase):
 
     def test_senseresultat(self):
         self.assertEqual(cercador.entrada("piñoàêü")[0], "SenseResultat")
@@ -20,6 +20,10 @@ class ParaulesGuardades(unittest.TestCase):
 
         for paraula, origen in zip(paraules, origens):
             self.assertEqual(cercador.entrada(paraula)[1], origen)
+
+    def test_thesaurus(self):
+        self.assertEqual(cercador.thesaurus("prova"), "existeix")
+        self.assertEqual(cercador.thesaurus("kkajn"), "no existeix")
 
 if __name__ == '__main__':
     unittest.main()
