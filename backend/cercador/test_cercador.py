@@ -8,15 +8,15 @@ class ParaulesGuardades(unittest.TestCase):
         self.assertEqual(cercador.entrada("")[0], "SenseResultat")
 
     def test_url(self):
-        paraules = ("ós", "Ós", "conill", "lego")
-        urls     = ("../backend/videos/ós.mp4", "../backend/videos/ós.mp4", "../backend/videos/conill.mp4", "http://techslides.com/demos/sample-videos/small.webm")
+        paraules = ("Helicòpter", "helicòpter", "cloïssa", "0", "Sant Jordi")
+        urls     = ("https://www.youtube.com/embed/hQ6splo5GjQ", "https://www.youtube.com/embed/hQ6splo5GjQ", "https://www.youtube.com/embed/MaIVe1JtVmg", "https://www.youtube.com/embed/fnbDGumgny8", "https://www.youtube.com/embed/CG_5OFGV4NI")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.entrada(paraula)[0], url)
 
     def test_origen(self):
-        paraules = ("conill", "caure")
-        origens  = (None, "youtube")
+        paraules = ("crispetes", "Pèsol")
+        origens  = ("youtube", "youtube")
 
         for paraula, origen in zip(paraules, origens):
             self.assertEqual(cercador.entrada(paraula)[1], origen)
