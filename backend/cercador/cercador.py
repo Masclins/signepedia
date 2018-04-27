@@ -5,17 +5,38 @@ import requests
 def thesaurus(paraula):
     req = requests.get("https://openthesaurus.softcatala.org/synonyme/search?q=" + paraula + "&format=application/json")
     defs = req.json()["synsets"]
-    if (len(defs) > 0):
-        return "existeix"
-    else:
-        return "no existeix"
+    
+    sinonims = []
+    for def_tmp in defs:
+        for ss in def_tmp["terms"]:
+            sinonim = ss["term"]
+            if (sinonim != paraula and not (sinonim in sinonims)):
+                sinonims.append(sinonim)
 
-def entrada(paraula):
-    paraula = paraula.lower();
+    return sinonims
+
+def obte_entrada(paraula):
     with open("diccionari.csv") as diccionariCSV:
         diccionari = csv.DictReader(diccionariCSV)
         for entrada in diccionari:
             if (entrada["paraula"] == paraula):
-                return [entrada["url"], entrada["origen"]]
+                return entrada
 
-        return ["SenseResultat", ""]
+        return None
+
+def troba_sinonims(paraula):
+    sinonims = thesaurus(paraula)
+    paraules = []
+    for sinonim in sinonims:
+        entrada = obte_entrada(sinonim)
+        if entrada != None:
+            paraules.append(entrada["paraula"])
+    
+    return dict(paraula=paraula, sinonims=paraules)
+
+def cerca_paraula(paraula):
+    entrada = obte_entrada(paraula.lower())
+    if entrada != None:
+        return entrada
+    else:
+        return troba_sinonims(paraula.lower())

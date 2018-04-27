@@ -2,8 +2,15 @@ function mostra_entrada(entrada) {
     var entrada = JSON.parse(entrada);
     
     var el = document.getElementById("resultat");
-    if (entrada.url == "SenseResultat") {
+    if (entrada.url === undefined) {
         el.innerHTML = 'No tenim "' + entrada.paraula + '" registrada';
+        if (entrada.sinonims.length > 0) {
+            el.innerHTML += "<br>Però si que tenim: ";
+            el.innerHTML += entrada.sinonims[0];
+            for (i = 1; i < entrada.sinonims.length; ++i) {
+                el.innerHTML += ", " + entrada.sinonims[i];
+            }
+        }
     } else {
         if (entrada.origen == "youtube") {
             el.innerHTML = html_youtube(entrada.url);
