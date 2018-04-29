@@ -22,7 +22,8 @@ El desenvolupament del *backend* és en Python3. A més cal instalar els paquets
 
 ### Tests unitaris
 Els canvis de desenvolupament hauràn d'anar acompanyats de tests unitaris per a cadascuna de les funcions (o com a mínim les importants).
-Per executar els tests, a `backend/` cal executar la comanda `python3 -m unittest discover`
+Per executar els tests, a `backend/` cal executar la comanda `python3 -m unittest discover`.
+És necessàri estar executant en un terminal `FLASK_APP=api.py python3 -m flask run` per fer la consulta al servidor local (ja que hi ha tests de l'api).
 
 ## Ús (Linux)
 Des del `backend/` cal mantenir executat `FLASK_APP=api.py python3 -m flask run`
