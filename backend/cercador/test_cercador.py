@@ -3,13 +3,8 @@ import unittest
 
 class TestCercador(unittest.TestCase):
 
-    ### Tests de thesaurus
-    def test_thesaurus(self):
-        self.assertEqual(cercador.thesaurus("prova"), ["assaig", "experiment", "experimentació", "intent", "provatura", "temptativa", "tempteig", "test", "demostració", "examen"])
-        self.assertEqual(cercador.thesaurus("kkajn"), [])
-
     ### Tests de obte_entrada    
-    def test_obte_entradasenseresultat(self):
+    def test_obte_senseresultat(self):
         self.assertEqual(cercador.obte_entrada("piñoàêü"), None)
         self.assertEqual(cercador.obte_entrada(""), None)
         self.assertEqual(cercador.obte_entrada("Sant Jordi"), None)
@@ -34,11 +29,14 @@ class TestCercador(unittest.TestCase):
 
     ###Tests cerca_paraula
     def test_cerca_paraula_url(self):
-        paraules = ("Helicòpter", "helicòpter", "cloïssa", "0", "Sant Jordi")
-        urls     = ("https://www.youtube.com/embed/hQ6splo5GjQ","https://www.youtube.com/embed/hQ6splo5GjQ", "https://www.youtube.com/embed/MaIVe1JtVmg", "https://www.youtube.com/embed/fnbDGumgny8", "https://www.youtube.com/embed/CG_5OFGV4NI")
+        paraules = ("helicòpter", "Sant Jordi")
+        urls     = ("https://www.youtube.com/embed/hQ6splo5GjQ", "https://www.youtube.com/embed/CG_5OFGV4NI")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.cerca_paraula(paraula)["url"], url)
+
+    def test_cerca_paraula_sinonims(self):
+        self.assertEqual(cercador.cerca_paraula("Roig"), {"paraula": "roig", "sinonims": ["vermell"]})
 
 if __name__ == '__main__':
     unittest.main()

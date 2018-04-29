@@ -25,6 +25,6 @@ Els canvis de desenvolupament hauràn d'anar acompanyats de tests unitaris per a
 Per executar els tests, a `backend/` cal executar la comanda `python3 -m unittest discover`
 
 ## Ús (Linux)
-Des del `backend/` cal mantenir executat `FLASK_APP=ensignepedia.py python3 -m flask run`
+Des del `backend/` cal mantenir executat `FLASK_APP=api.py python3 -m flask run`
 
 La web es troba a `frontend/main.html`

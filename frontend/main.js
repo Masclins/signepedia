@@ -5,14 +5,14 @@ function mostra_entrada(entrada) {
     if (entrada.url === undefined) {
         el.innerHTML = 'No tenim "' + entrada.paraula + '" registrada';
         if (entrada.sinonims.length > 0) {
-            el.innerHTML += "<br>Però si que tenim: ";
+            el.innerHTML += "<br>Però sí que tenim: ";
             el.innerHTML += entrada.sinonims[0];
             for (i = 1; i < entrada.sinonims.length; ++i) {
                 el.innerHTML += ", " + entrada.sinonims[i];
             }
         }
     } else {
-        if (entrada.origen == "youtube") {
+        if (entrada.origen === "youtube") {
             el.innerHTML = html_youtube(entrada.url);
         } else {
             el.innerHTML = html_video(entrada.url);
@@ -29,7 +29,7 @@ function obte_paraula () {
 }
 
 var paraula = obte_paraula();
-if (paraula != "") {
+if (paraula !== "") {
     httpGetAsync(
             "http://127.0.0.1:5000/diccionari/" + paraula,
             mostra_entrada); //GET 
