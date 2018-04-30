@@ -1,3 +1,10 @@
+
+// Comprovem si tenim informacio de la paraula entrada. En cas
+// afirmatiu, mostrem per pantalla el video corresponent.
+// En cas que no en tinguem, mostrem per pantalla informacio
+// relativa a la llista de sinonims de la paraula entrada.
+
+
 function mostra_entrada(entrada) {
     var entrada = JSON.parse(entrada);
     
@@ -19,6 +26,10 @@ function mostra_entrada(entrada) {
         }
     }
 }
+
+// Inspeccionem a quina posicio es troba "=". Si no apareix en cap lloc, vol dir que 
+// no hi ha cap matching amb la paraula entrada. En cas que hi aparegui, agafem tot el
+// que es troba a la dreta del signe "=" reemplaçant el(s) "+" per un espai.
 
 function obte_paraula () {
     var idx = location.href.indexOf("=");
