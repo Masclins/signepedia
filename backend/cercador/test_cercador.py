@@ -10,8 +10,8 @@ class TestCercador(unittest.TestCase):
         self.assertEqual(cercador.obte_entrada("Sant Jordi"), None)
 
     def test_obte_entrada_url(self):
-        paraules = ("helicòpter", "cloïssa", "0", "sant jordi")
-        urls     = ("https://www.youtube.com/embed/hQ6splo5GjQ", "https://www.youtube.com/embed/MaIVe1JtVmg", "https://www.youtube.com/embed/fnbDGumgny8", "https://www.youtube.com/embed/CG_5OFGV4NI")
+        paraules = ("condó", "0", "sant just")
+        urls     = ("https://www.youtube.com/embed/k00gTxzyaNs", "https://www.youtube.com/embed/fnbDGumgny8", "https://www.youtube.com/embed/oawVAxU7wVA")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.obte_entrada(paraula)["url"], url)
@@ -29,8 +29,8 @@ class TestCercador(unittest.TestCase):
 
     ###Tests cerca_paraula
     def test_cerca_paraula_url(self):
-        paraules = ("helicòpter", "Sant Jordi")
-        urls     = ("https://www.youtube.com/embed/hQ6splo5GjQ", "https://www.youtube.com/embed/CG_5OFGV4NI")
+        paraules = ("1.000", "Sant Just")
+        urls     = ("https://www.youtube.com/embed/LqaR9NO8hmk", "https://www.youtube.com/embed/oawVAxU7wVA")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.cerca_paraula(paraula)["url"], url)
