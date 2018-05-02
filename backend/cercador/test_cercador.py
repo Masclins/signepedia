@@ -15,15 +15,15 @@ class TestCercador(unittest.TestCase):
 
     # Comprovem que el matching de la paraula amb la seva url es duu a terme correctament
     def test_obte_entrada_url(self):
-        paraules = ("condó", "0", "sant just")
-        urls     = ("https://www.youtube.com/embed/k00gTxzyaNs", "https://www.youtube.com/embed/fnbDGumgny8", "https://www.youtube.com/embed/oawVAxU7wVA")
+        paraules = ("adreça", "1.000", "sant just")
+        urls     = ("../videos/adreça.mp4", "https://www.youtube.com/embed/LqaR9NO8hmk", "https://www.youtube.com/embed/oawVAxU7wVA")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.obte_entrada(paraula)["url"], url)
  
     def test_obte_entrada_origen(self):
-        paraules = ("crispetes", "pèsol")
-        origens  = ("youtube", "youtube")
+        paraules = ("horari", "pèsol")
+        origens  = ("", "youtube")
 
         for paraula, origen in zip(paraules, origens):
             self.assertEqual(cercador.obte_entrada(paraula)["origen"], origen)
@@ -34,15 +34,15 @@ class TestCercador(unittest.TestCase):
 
     # Comprovem que som capaços de trobar els sinonims de la paraula entrada
     def test_troba_sinonims(self):
-        self.assertEqual(cercador.troba_sinonims("roig"), {"paraula": "roig", "sinonims": ["vermell"]})
+        self.assertEqual(cercador.troba_sinonims("escola"), {"paraula": "escola", "sinonims": ["col·legi","estudi","institut"]})
 
     #######################
     # Tests cerca_paraula #
     #######################
 
     def test_cerca_paraula_url(self):
-        paraules = ("1.000", "Sant Just")
-        urls     = ("https://www.youtube.com/embed/LqaR9NO8hmk", "https://www.youtube.com/embed/oawVAxU7wVA")
+        paraules = ("màster", "Sant Just")
+        urls     = ("../videos/màster.mp4", "https://www.youtube.com/embed/oawVAxU7wVA")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.cerca_paraula(paraula)["url"], url)
