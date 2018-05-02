@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
 app.post('/', function (req, res) {
     let paraula = req.body.paraula;
-    let url = `http://127.0.0.1:5000/diccionari/${paraula}`
+    let url = `http://backend:5000/diccionari/${paraula}`
     request(url, function (err, response, body) {
         let entrada = JSON.parse(body);
         res.render("index", {paraula: paraula, resultat: require('./src/obte_codi_html.js').html_resultat(entrada)});

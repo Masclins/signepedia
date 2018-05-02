@@ -23,25 +23,15 @@ Per tal d'evitar que més d'una persona estigui treballant en sol·lucionar el m
 Qualsevol *pull-request* hauria de resoldre una *issue* existent. En el cos de la *pull-request* ha d'apareixer `resolves #X`, substituint la *X* pel número de la *issue* que resol.
 
 ## Desenvolupament
-El desenvolupament del *backend* és en Python3. A més cal instalar els paquets:
-* Flask
-* flask-cors
-* requests
-
-El desenvolupament del *frontend* és en Javascript. No cal instalar res.
 
 ### Tests unitaris
 Els canvis de desenvolupament hauràn d'anar acompanyats de tests unitaris per a cadascuna de les funcions (o com a mínim les importants).
-Per executar els tests, a `backend/` cal executar la comanda `python3 -m unittest discover`.
-És necessàri estar executant en un terminal `FLASK_APP=api.py python3 -m flask run` per fer la consulta al servidor local (ja que hi ha tests de l'api).
+Per executar els tests, cal tenir instalat Ptyhon3 i els paquets:
+* Flask
+* flask-cors
+* requests
+A `backend/` cal estar executant en un terminal `FLASK_APP=api.py python3 -m flask run` i executar la comanda `python3 -m unittest discover`.
 
 ### Scripts R
 A `scripts_R/` hi ha alguns (ara per ara un de sol) scripts per modificar `backend/diccionari.csv`. La intenció s fer-lo servir per ordenar el diccionari alfabèticament i, si calgus, aplicar-hi altres modificacions que fossin necessàries.
 No és necessari fer-lo servir per al desenvolupament.
-
-## Ús (Linux)
-Des del `backend/` cal mantenir executat `FLASK_APP=api.py python3 -m flask run`
-
-Des del `frontend/` cal mantenir executat `node main.js`
-
-L'accés a la web es fa posant `localhost:8080` al navegador.
