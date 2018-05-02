@@ -25,12 +25,7 @@ Qualsevol *pull-request* hauria de resoldre una *issue* existent. En el cos de l
 ## Desenvolupament
 
 ### Tests unitaris
-Els canvis de desenvolupament hauràn d'anar acompanyats de tests unitaris per a cadascuna de les funcions (o com a mínim les importants).
-Per executar els tests, cal tenir instalat Ptyhon3 i els paquets:
-* Flask
-* flask-cors
-* requests
-A `backend/` cal estar executant en un terminal `FLASK_APP=api.py python3 -m flask run` i executar la comanda `python3 -m unittest discover`.
+A `backend/` cal executar la comanda `python3 -m unittest discover` (mentre es té el docker-compose actiu).
 
 ### Scripts R
 A `scripts_R/` hi ha alguns (ara per ara un de sol) scripts per modificar `backend/diccionari.csv`. La intenció s fer-lo servir per ordenar el diccionari alfabèticament i, si calgus, aplicar-hi altres modificacions que fossin necessàries.

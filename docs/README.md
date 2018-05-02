@@ -9,7 +9,8 @@ Entenem aquesta eina com un suport a l'aprenentatge de la LSC, no com un metodol
 Cal instal·lar [Docker](https://store.docker.com/search?type=edition&offering=community) i clonar el repositori (`git clone https://github.com/Masclins/ensignepedia`).
 
 ## Ús
-Executant `docker-compose build && docker-compose up` des de la carpeta del projecte, l'aplicació és accessible des del navegador, a `localhost:8080`.
+Cal tenir una terminal executant `docker-compose build && docker-compose up` des de la carpeta del projecte.
+L'aplicació és accessible des del navegador, a `localhost:8080`.
 
 ## Llicència
 
