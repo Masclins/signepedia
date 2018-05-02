@@ -16,7 +16,7 @@ class TestCercador(unittest.TestCase):
     # Comprovem que el matching de la paraula amb la seva url es duu a terme correctament
     def test_obte_entrada_url(self):
         paraules = ("adreça", "1.000", "sant just")
-        urls     = ("../videos/adreça.mp4", "https://www.youtube.com/embed/LqaR9NO8hmk", "https://www.youtube.com/embed/oawVAxU7wVA")
+        urls     = ("videos/adreça.mp4", "https://www.youtube.com/embed/LqaR9NO8hmk", "https://www.youtube.com/embed/oawVAxU7wVA")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.obte_entrada(paraula)["url"], url)
@@ -42,7 +42,7 @@ class TestCercador(unittest.TestCase):
 
     def test_cerca_paraula_url(self):
         paraules = ("màster", "Sant Just")
-        urls     = ("../videos/màster.mp4", "https://www.youtube.com/embed/oawVAxU7wVA")
+        urls     = ("videos/màster.mp4", "https://www.youtube.com/embed/oawVAxU7wVA")
 
         for paraula, url in zip(paraules, urls):
             self.assertEqual(cercador.cerca_paraula(paraula)["url"], url)

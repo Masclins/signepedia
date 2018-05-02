@@ -1,11 +1,18 @@
 # Contribuir
 El funcionament del projecte es basa en crear *Issues* i fer *Pull-requests* que els solucionin.
 
+## Videos gravats
+Els vídeos gravats hauran de desar-se, en format `.mp4` a la carpeta `frontend/public/videos`. L'arxiu ha de dir-se com la paraula gravada en minúscules.
+
 ## Vocabulari
-El vocabulari ha d'estar tot present a `backend/diccionari.csv`. Per afegiri-hi una nova paraula caldrà fer-ho en una nova línea, de la seguent manera, segons on estigui allotjat el video.
-* Si és al repositori (carpeta `backend/videos`): `"paraula_en_minúscules","../backend/videos/nom_del_video","","nom_de_l'autor"`
-* Si és a la xarxa, i en format de video: `"paraula_en_minúscules","url", "","nom_de_l'autor"`
-* Si és a youtube: `"paraula_en_minúscules","url_d'incersió", "youtube", "nom_de_l'autor"`. La url d'incersió és del tipus `http://www.youtube.com/embed/` seguit del codi del video.
+El vocabulari ha d'estar tot present a `backend/diccionari.csv`. Per afegiri-hi una nova paraula caldrà fer-ho en una nova línea. Els camps del `.csv` estan a la primera línea: `"paraula","url","origen","autor","nota"`. Tots els camps han de ser presents, però poden estar buits (indicat simplement amb `""`).
+Exemples d'entrada:
+* Paraula *exemple*, en el repositori (carpeta `frontend/public/videos`), gravat per *Masclins*:
+`"exemple","videos/exemple.mp4","","Masclins",""`
+* Paraula *rosa*, referint-se a la flor, en una web en format `.wav`, gravat per *Pepito*:
+`"rosa","http://webdelpepito.com/rosaLSC.wav","","Pepito","Flor"`
+* Paraula *cogombre*, a YouTube, de l'usuari *LSCyoutuber*:
+`"cogombre","http://www.youtube.com/embed/c06oM8r3","youtube","LSCyoutuber",""`
 
 ## Issues
 Totes les *issues* que es creïn hauràn de començar amb un verb en infinitiu que descrigui la principal acció a prendre per solucionar un problema. El problema haurà d'estar explicat en el cos de l'*issue*.
@@ -35,4 +42,6 @@ No és necessari fer-lo servir per al desenvolupament.
 ## Ús (Linux)
 Des del `backend/` cal mantenir executat `FLASK_APP=api.py python3 -m flask run`
 
-La web es troba a `frontend/main.html`
+Des del `frontend/` cal mantenir executat `node main.js`
+
+L'accés a la web es fa posant `localhost:8080` al navegador.

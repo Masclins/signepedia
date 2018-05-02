@@ -1,3 +1,6 @@
+*.sw[a-p]
+
 backend/__pycache__/*
-backend/cercador/__pycache__/*
+backend/*/__pycache__/*
+
 .Rproj.user
