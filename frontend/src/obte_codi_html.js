@@ -13,10 +13,10 @@ module.exports = {
         if (entrada.url === undefined) {
             resposta = 'No tenim "' + entrada.paraula + '" registrada';
             if (entrada.sinonims.length > 0) {
-                resposta += "<br>Però sí que tenim: ";
-                resposta += entrada.sinonims[0];
+                resposta += '<br>Però sí que tenim: ';
+                resposta += '"' + entrada.sinonims[0] + '"';
                 for (i = 1; i < entrada.sinonims.length; ++i) {
-                    resposta += ", " + entrada.sinonims[i];
+                    resposta += ', "' + entrada.sinonims[i] + '"';
                 }
             }
         } else {

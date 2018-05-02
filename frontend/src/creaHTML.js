@@ -8,7 +8,7 @@ module.exports = {
 
     creaHTML: function(url, origen) {
         if (origen === "youtube") {
-            return "<iframe width='480' height='260' allow='autoplay' src='" + url + "'></iframe>";
+            return "<iframe width='480' height='360' allow='autoplay' src='" + url + "'></iframe>";
         } else {
             return "<video width='480' height='360' controls autoplay muted src='" + url + "'></video>";
         }

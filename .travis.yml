@@ -6,7 +6,13 @@ install:
     - pip3 install requests
     - sudo pip3 install Flask
     - sudo pip3 install flask-cors
+    - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    - sudo apt-get install nodejs
+    - sudo apt-get install build-essential
+    - sudo npm install jasmine-node -g
 script:
     - cd backend
     - FLASK_APP=api.py python3 -m flask run &
     - python3 -m unittest discover
+    - cd ../frontend
+    - jasmine-node spec
