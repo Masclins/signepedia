@@ -6,7 +6,7 @@ Crear un diccionari col·laboratiu gratuït Català - LSC accessible des de nave
 Entenem aquesta eina com un suport a l'aprenentatge de la LSC, no com un metodologia en si mateixa.
 
 ## Instal·lació
-Cal instal·lar [Docker](https://store.docker.com/search?type=edition&offering=community) i clonar el repositori (`git clone https://github.com/Masclins/ensignepedia`).
+Cal instal·lar [Docker](https://store.docker.com/search?type=edition&offering=community) i clonar el repositori (`git clone https://github.com/Masclins/signepedia`).
 
 ## Ús
 Cal tenir una terminal executant `docker-compose build && docker-compose up` des de la carpeta del projecte.
