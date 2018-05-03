@@ -26,11 +26,10 @@ Qualsevol *pull-request* hauria de resoldre una *issue* existent. En el cos de l
 
 ### Tests unitaris
 #### Backend
-A `backend/` cal executar la comanda `python3 -m unittest discover` (mentre es té el docker-compose actiu).
+A `backend/` cal executar la comanda `python3 -m unittest discover`
 
 #### Frontend
-Cal instal·lar [Node.js](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04) i [Jasmine](https://www.npmjs.com/package/jasmine).
-A `frontend/` cal executar la comanda `jasmine.node spec`.
+`docker-compose run frontend npm test`
 
 ### Scripts R
 A `scripts_R/` hi ha alguns (ara per ara un de sol) scripts per modificar `backend/diccionari.csv`. La intenció s fer-lo servir per ordenar el diccionari alfabèticament i, si calgus, aplicar-hi altres modificacions que fossin necessàries.

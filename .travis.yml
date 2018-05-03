@@ -1,18 +1,21 @@
-language: python
-    - "3.6"
-    - "3.6.3"
-install:
-    - sudo apt install python3-pip
-    - pip3 install requests
-    - sudo pip3 install Flask
-    - sudo pip3 install flask-cors
-    - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-    - sudo apt-get install nodejs
-    - sudo apt-get install build-essential
-    - sudo npm install jasmine-node -g
-script:
-    - cd backend
-    - FLASK_APP=api.py python3 -m flask run &
-    - python3 -m unittest discover
-    - cd ../frontend
-    - jasmine-node spec
+sudo: required
+
+services:
+    - docker
+
+jobs:
+    include:
+        - stage: Backend Unit Tests
+          install:
+              - sudo apt install python3-pip
+              - pip3 install requests
+              - sudo pip3 install Flask
+              - sudo pip3 install flask-cors
+          script:
+              - python3 -m unittest discover
+        - stage: Frontend Unit Tests
+          script:
+              - docker-compose run frontend npm test
+
+notifications:
+    email: false
