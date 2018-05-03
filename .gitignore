@@ -4,3 +4,4 @@ backend/__pycache__/*
 backend/*/__pycache__/*
 
 .Rproj.user
+scripts_R/.Rhistory
