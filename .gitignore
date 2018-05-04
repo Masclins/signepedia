@@ -5,3 +5,5 @@ backend/*/__pycache__/*
 
 .Rproj.user
 scripts/.Rhistory
+scripts/.RData
+scripts/scripts.Rout
