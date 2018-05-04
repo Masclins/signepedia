@@ -30,9 +30,8 @@ def troba_sinonims(paraula):
     sinonims = get_sinonims(paraula)
     paraules = []
     for sinonim in sinonims:
-        entrada = cercador.obte_entrada(sinonim)
-        if entrada != None:
-            paraules.append(entrada["paraula"])
+        if cercador.tenim_entrada(sinonim):
+            paraules.append(sinonim)
 
     if len(paraules) == 0:
         return dict(paraula=paraula)
