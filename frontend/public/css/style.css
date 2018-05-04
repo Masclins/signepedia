@@ -72,3 +72,9 @@ fieldset {
 p {
   color: #E64A19;
 }
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

@@ -12,12 +12,15 @@ module.exports = {
         var resposta = "";
         if (entrada.url === undefined) {
             resposta = 'No tenim "' + entrada.paraula + '" registrada';
-            if (entrada.sinonims.length > 0) {
+            if (entrada.sinonims !== undefined) {
                 resposta += '<br>Però sí que tenim: ';
                 resposta += '"' + entrada.sinonims[0] + '"';
                 for (i = 1; i < entrada.sinonims.length; ++i) {
                     resposta += ', "' + entrada.sinonims[i] + '"';
                 }
+            } else if (entrada.correccio !== undefined) {
+                resposta += '<br>Potser volies dir ';
+                resposta += '"' + entrada.correccio + '"?';
             }
         } else {
             resposta = creaHTML.creaHTML(entrada.url, entrada.origen);

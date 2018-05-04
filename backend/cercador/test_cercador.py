@@ -28,6 +28,13 @@ class TestCercador(unittest.TestCase):
         for paraula, origen in zip(paraules, origens):
             self.assertEqual(cercador.obte_entrada(paraula)["origen"], origen)
 
+    ###########################
+    # Tests corregeix_paraula #
+    ###########################
+
+    def test_corregeix_paraula(self):
+        self.assertEqual(cercador.corregeix_paraula("master"), {"paraula": "master", "correccio": "màster"})
+
     ########################
     # Tests troba_sinonims #
     ########################
@@ -35,6 +42,9 @@ class TestCercador(unittest.TestCase):
     # Comprovem que som capaços de trobar els sinonims de la paraula entrada
     def test_troba_sinonims(self):
         self.assertEqual(cercador.troba_sinonims("escola"), {"paraula": "escola", "sinonims": ["col·legi","estudi","institut"]})
+
+    def test_no_troba_sinonims(self):
+        self.assertEqual(cercador.troba_sinonims("violeta"), {"paraula": "violeta"})
 
     #######################
     # Tests cerca_paraula #
@@ -49,6 +59,9 @@ class TestCercador(unittest.TestCase):
 
     def test_cerca_paraula_sinonims(self):
         self.assertEqual(cercador.cerca_paraula("Roig"), {"paraula": "roig", "sinonims": ["vermell"]})
+
+    def test_cerca_paraula_correcio(self):
+        self.assertEqual(cercador.cerca_paraula("Vlau"), {"paraula": "vlau", "correccio": "blau"})
 
 if __name__ == '__main__':
     unittest.main()

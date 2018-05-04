@@ -2,11 +2,15 @@ const obte = require("../src/obte_codi_html.js");
 
 describe("Retorna el codi de l'entrada", function () {
     it("Hauria de disculpar-se", function () {
-        expect(obte.html_resultat({"paraula":"fracaso_absoluto", "sinonims":[]})).toBe('No tenim "fracaso_absoluto" registrada');
+        expect(obte.html_resultat({"paraula":"fracaso_absoluto"})).toBe('No tenim "fracaso_absoluto" registrada');
     });
 
     it("Hauria de retornar els sinònims", function () {
         expect(obte.html_resultat({"paraula":"brunada", "sinonims":["pifia", "cagada", "lolaso"]})).toBe('No tenim "brunada" registrada<br>Però sí que tenim: "pifia", "cagada", "lolaso"');
+    });
+
+    it("Hauria de retornar una correcció", function () {
+        expect(obte.html_resultat({"paraula":"tatatània", "correccio":"tània"})).toBe('No tenim "tatatània" registrada<br>Potser volies dir "tània"?');
     });
 
     it("Hauria de retornar un <iframe>", function () {
