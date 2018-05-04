@@ -12,6 +12,8 @@ jobs:
               - sudo pip3 install Flask
               - sudo pip3 install flask-cors
           script:
+              - cd backend
+              - FLASK_APP=api.py python3 -m flask run &
               - python3 -m unittest discover
         - stage: Frontend Unit Tests
           script:
