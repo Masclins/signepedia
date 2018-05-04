@@ -26,7 +26,7 @@ Qualsevol *pull-request* hauria de resoldre una *issue* existent. En el cos de l
 
 ### Tests unitaris
 #### Backend
-A `backend/` cal estar executant `FLASK_APP=api.py python3 -m flask run` i executar la comanda `python3 -m unittest discover`
+`docker-compose run backend python3 -m unittest discover`
 
 #### Frontend
 `docker-compose run frontend npm test`
