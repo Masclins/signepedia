@@ -1,18 +1,20 @@
 from src import signepedia
 import unittest
 
-class TestCercador(unittest.TestCase):
+class TestSignepedia(unittest.TestCase):
  
-    #######################
-    # Tests cerca_paraula #
-    #######################
+    #########################
+    # Tests retorna_entrada #
+    #########################
 
-    def test_entrada_url(self):
+    # Comprovem que estem retornant totes les entrades com hauríem.
+    # No fem més de sinònims ni correcció per evitar enlentir els tests.
+    def test_entrada_registrada(self):
         paraules = ("màster", "Sant Just")
-        urls     = ("videos/màster.mp4", "https://www.youtube.com/embed/oawVAxU7wVA")
+        entrades = (dict(paraula="màster",nota="",url="videos/màster.mp4",origen="",autor="Tània"), dict(paraula="sant just",nota="",url="https://www.youtube.com/embed/oawVAxU7wVA",origen="youtube",autor="frosinor85"))
 
-        for paraula, url in zip(paraules, urls):
-            self.assertEqual(signepedia.retorna_entrada(paraula)["url"], url)
+        for paraula, entrada in zip(paraules, entrades):
+            self.assertEqual(signepedia.retorna_entrada(paraula), entrada)
 
     def test_entrada_sinonims(self):
         self.assertEqual(signepedia.retorna_entrada("Roig"), {"paraula": "roig", "sinonims": ["vermell"]})

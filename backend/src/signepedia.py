@@ -2,9 +2,12 @@ from src import cercador
 from src import sinonims
 from src import corrector
 
-# Convertim la paraula entrada a minuscules per evitar errors de matching
-# i retornem la paraula entrada. En cas que no estigui registrada, 
-# retornem una llista de sinonims.
+# Cerquem tota la informació que volem passar al frontend d'una paraula.
+# Creem una entrada on passem el que tenim, per ordre de prioritat:
+# 1- Entrada de "paraula" (+ alternatives, si n'hi ha)
+# 2- Alternatives de "paraula"
+# 3- Sinònims de "paraula"
+# 4- Correcció ortogràfica de "paraula"
 
 def retorna_entrada(paraula):
     entrada = cercador.obte_entrada(paraula.lower())

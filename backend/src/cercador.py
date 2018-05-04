@@ -1,9 +1,7 @@
 import os.path
 import csv
 
-# Comprovem que la paraula entrada esta continguda dins 
-# el nostre diccionari. Si ho esta, la retornem.
-# En cas contrari no retornem res.
+# Retornem si "paraula" esta registrada al diccionari.
 
 def tenim_entrada(paraula):
     with open("diccionari.csv") as diccionariCSV:
@@ -14,19 +12,29 @@ def tenim_entrada(paraula):
 
         return False
 
+def uneix_paraula_nota(paraula, nota):
+    if nota == "":
+        return paraula
+    char0 = nota[0]
+    if char0 == "-" or char0 == "'" or char0 == "?":
+        return paraula + nota
+    else:
+        return paraula + " " + nota
+
+# Retornem l'entrada del diccionari, i alternatives, d'una "paraula".
+
 def obte_entrada(paraula):
     entrada_resultat = None
     alternatives = []
     with open("diccionari.csv") as diccionariCSV:
         diccionari = csv.DictReader(diccionariCSV)
         for entrada in diccionari:
-            if entrada["paraula"] == paraula:
-                if entrada["nota"] == "":
-                    entrada_resultat = entrada
-                else:
-                    alternatives.append(entrada["nota"])
-            elif entrada["paraula"] + " " + entrada["nota"] == paraula:
-                return entrada
+            paraula_entrada = uneix_paraula_nota(entrada["paraula"], entrada["nota"])
+            if paraula_entrada == paraula:
+                entrada_resultat = entrada
+                entrada_resultat["paraula"] = paraula_entrada
+            elif entrada["paraula"] == paraula:
+                alternatives.append(paraula_entrada)
 
     if len(alternatives) != 0:
         if entrada_resultat != None:

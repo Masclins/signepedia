@@ -1,20 +1,24 @@
 import requests
 from src import cercador
 
+# Obtenim la correcció ortogràfica d'una "paraula" a través de LanguageTool.
+# Si no hi ha correcció, retornem "None".
+# Cal evitar saturar el servidor.
+
 def get_correccio(paraula):
     try:
         req = requests.get("https://languagetool.org/api/v2/check?text=" + paraula + "&language=ca&enabledOnly=false")
-        correccions = req.json()["matches"][0]["replacements"]
-        if (len(correccions) == 0):
+        resposta = req.json()["matches"][0]
+        missatge = resposta["shortMessage"]
+        correccions = resposta["replacements"]
+        if (len(correccions) == 0 or missatge != "Error ortogràfic"):
             return None
-        else :
+        else:
             return correccions[0]["value"]
     except:
         return None
 
-# Fem servir LanguageTool per comprovar si la paraula
-# està mal escrita. Retornem l'alternativa si la tenim
-# al nostre diccionari.
+# Retornem un mapa amb la possible correcció d'una "paraula" si la tenim registrada.
 
 def corregeix_paraula(paraula):
     correccio = get_correccio(paraula)

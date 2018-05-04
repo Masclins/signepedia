@@ -1,13 +1,16 @@
 from src import sinonims
 import unittest
 
-class TestCercador(unittest.TestCase):
+class TestSinonims(unittest.TestCase):
 
-    ### Tests de thesaurus
+    ######################
+    # Tests get_sinonims #
+    ######################
 
-    # Comprovem que obtenim doncs tots els sinonims de la paraula "prova" sense repeticions
+    # Comprovem que obtenim tots els sinonims sense repeticions.
+    # No en fem més per evitar enlentir les proves.
 
-    def test_obte_sinonims(self):
+    def test_get_sinonims(self):
         self.assertEqual(sinonims.get_sinonims("prova"), ["assaig", "experiment", "experimentació", "intent", "provatura", "temptativa", "tempteig", "test", "demostració", "examen"])
 
 
@@ -15,7 +18,9 @@ class TestCercador(unittest.TestCase):
     # Tests troba_sinonims #
     ########################
 
-    # Comprovem que som capaços de trobar els sinonims de la paraula entrada
+    # Comprovem que retornem només els sinònims registrats.
+    # No en fem més per evitar enlentir les proves.
+
     def test_troba_sinonims(self):
         self.assertEqual(sinonims.troba_sinonims("escola"), {"paraula": "escola", "sinonims": ["col·legi","estudi","institut"]})
 

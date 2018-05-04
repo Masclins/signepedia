@@ -1,43 +1,45 @@
 var creaHTML = require("./creaHTML.js");
 
+    // Retorna un vector com un string enumerant els seus elements.
+
+function separa_comes(vector) {
+	r = '"' + vector[0] + '"';
+	if (vector.length == 1) {
+		return r+'.';
+	} else if (vector.length > 2) {
+		for (i = 1; i < vector.length-1; ++i) {
+			r += ', "' + vector[i] + '"';
+		}
+	}
+	r += ' o "' + vector[vector.length-1] + '".';
+	return r;
+}
+
 module.exports = {
 
-    // Comprovem si tenim informació de la paraula entrada.
-    // En cas afirmatiu, retornem el codi HTML per mostrar
-    // el video corresponent. En cas que no en tinguem,
-    // retornem el codi HTML per mostrar els sinònims que
-    // tenim de la paraula entrada.
+    // Comprova la informació de l'entrada que tenim i retorna el codi HTML per mostrar-la.
 
     html_resultat: function(entrada) {
         var resposta = "";
         if (entrada.url === undefined) {
             if (entrada.alternatives !== undefined) {
                 resposta = "Quina definició t'interessa? ";
-                resposta += '"' + entrada.paraula + ' ' + entrada.alternatives[0] + '"';
-                for (i = 1; i < entrada.alternatives.length; ++i) {
-                    resposta += ', "' + entrada.paraula + ' ' + entrada.alternatives[i] + '"';
-                }
+                resposta += separa_comes(entrada.alternatives);
             } else {
-                resposta = 'No tenim "' + entrada.paraula + '" registrada';
+                resposta = 'No tenim "' + entrada.paraula + '" registrada.';
                 if (entrada.sinonims !== undefined) {
                     resposta += '<br>Però sí que tenim: ';
-                    resposta += '"' + entrada.sinonims[0] + '"';
-                    for (i = 1; i < entrada.sinonims.length; ++i) {
-                        resposta += ', "' + entrada.sinonims[i] + '"';
-                    }
+                    resposta += separa_comes(entrada.sinonims);
                 } else if (entrada.correccio !== undefined) {
                     resposta += '<br>Potser volies dir ';
                     resposta += '"' + entrada.correccio + '"?';
                 }
             }
         } else {
-            resposta = creaHTML.creaHTML(entrada.url, entrada.origen);
+            resposta = creaHTML.videoHTML(entrada.url, entrada.origen);
             if (entrada.alternatives !== undefined) {
                 resposta += "<br>Poter t'interessa: ";
-                resposta += '"' + entrada.paraula + ' ' + entrada.alternatives[0] + '"';
-                for (i = 1; i < entrada.sinonims.length; ++i) {
-                    resposta += ',"' + entrada.paraula + ' ' + entrada.alternatives[i] + '"';
-                }
+                resposta += separa_comes(entrada.alternatives);
             }
         }
 

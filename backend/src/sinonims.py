@@ -1,10 +1,8 @@
 import requests
 from src import cercador
 
-# Busquem a la pagina de thesaurus tots els sinonims de la paraula entrada
-# Recorrem el conjunt de termes "terms" on cada "term" es un sinonim
-# Retornem una llista de tots els sinonims de la paraula entrada tenint en
-# compte que no hi ha repeticions i que tots son diferents a la paraula entrada
+# Busquem a OpenThesaurus tots els sinònims d'una "paraula".
+# N'eliminem els repetits o iguals a la "paraula".
 
 def get_sinonims(paraula):
     try:
@@ -22,9 +20,7 @@ def get_sinonims(paraula):
     except:
         return []
 
-# Fem servir el thesaurus per a cercar els sinonims de 
-# la paraula entrada. Retornem, dels sinonims obtinguts,
-# les paraules que tenim al nostre diccionari.
+# Retornem un mapa amb els sinonims que tenims registrats d'una "paraula", si n'hi ha algún.
 
 def troba_sinonims(paraula):
     sinonims = get_sinonims(paraula)
