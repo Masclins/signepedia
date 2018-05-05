@@ -1,5 +1,5 @@
-# Ensignepedia
-Dicionari Català - LSC
+# Signepedia
+Dicionari cooperatiu i gratuït de català - Llengua de Signes Catalana (LSC).
 
 ## Objectiu
 Crear un diccionari col·laboratiu gratuït Català - LSC accessible des de navegador i aplicació mòbil.
