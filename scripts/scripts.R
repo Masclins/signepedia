@@ -8,7 +8,9 @@ actualitzar_pendents <- function(ruta_diccionari = "../backend/diccionari.csv", 
   diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
   pendents <- read.table(ruta_pendents, fileEncoding="utf-8", stringsAsFactors = FALSE)
   
-  pendents <- data.frame(pendents[!sapply(pendents, function(p){p %in% diccionari$paraula})])
+  expresions <- sapply(apply(diccionari[,1:2],1, paste, collapse = " "), trimws)
   
+  pendents <- data.frame(pendents[!sapply(pendents, function(p){p %in% expresions})])
+
   write.table(pendents, ruta_pendents, fileEncoding="utf-8",row.names=FALSE,col.names=FALSE)
 }

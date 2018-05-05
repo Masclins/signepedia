@@ -25,7 +25,7 @@ class TestSinonims(unittest.TestCase):
         self.assertEqual(sinonims.troba_sinonims("escola"), {"paraula": "escola", "sinonims": ["col·legi","estudi","institut"]})
 
     def test_no_troba_sinonims(self):
-        self.assertEqual(sinonims.troba_sinonims("violeta"), {"paraula": "violeta"})
+        self.assertEqual(sinonims.troba_sinonims("llamp"), {"paraula": "llamp"})
 
 if __name__ == '__main__':
     unittest.main()
