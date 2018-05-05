@@ -13,6 +13,10 @@ class TestDiccionari(unittest.TestCase):
             for entrada in diccionari:
                 if not (("paraula" in entrada) and ("nota" in entrada) and ("url" in entrada) and ("origen" in entrada) and ("autor" in entrada)):
                     return False
+                if entrada["origen"] != "youtube" and entrada["origen"] != "":
+                    return False
+                if entrada["autor"] == "":
+                    return False
         return True
 
     def test_camps(self):

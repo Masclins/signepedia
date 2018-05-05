@@ -1,16 +1,47 @@
-ordenar_alfabeticament <- function(ruta = "../backend/diccionari.csv") {
-  data <- read.csv(ruta, fileEncoding="utf-8")
-  data <- data[order(data[,"paraula"]),]
-  write.csv(data, ruta, fileEncoding="utf-8", row.names=FALSE)
+diccionari_correcte <- function(diccionari) {
+  nota_correcte <- !grepl("embed", diccionari$nota)
+  origen_correcte <- (diccionari$origen == "youtube") | (diccionari$origen == "")
+  autor_correcte <- (diccionari$autor != "")
+  correcte <- nota_correcte & origen_correcte & autor_correcte
+  
+  if (sum(correcte) == nrow(diccionari)) {
+    return(TRUE)
+  } else {
+    print("Hi ha paraules amb camps erronis: ")
+    print(diccionari[!correcte, "paraula"])
+    return(FALSE)
+  }
 }
 
-actualitzar_pendents <- function(ruta_diccionari = "../backend/diccionari.csv", ruta_pendents = "../paraules_pendents.txt") {
-  diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
-  pendents <- read.table(ruta_pendents, fileEncoding="utf-8", stringsAsFactors = FALSE)
-  
-  expresions <- sapply(apply(diccionari[,1:2],1, paste, collapse = " "), trimws)
-  
-  pendents <- data.frame(pendents[!sapply(pendents, function(p){p %in% expresions})])
+ordenar_alfabeticament <- function() {
+  ruta = "../backend/diccionari.csv"
+  tryCatch({
+    data <- read.csv(ruta, fileEncoding="utf-8", stringsAsFactors = FALSE)
+    
+  }, warning = function(w) {
+    print(w)
+  }, error = function(e) {
+    print(e)
+  }, finally = {
 
-  write.table(pendents, ruta_pendents, fileEncoding="utf-8",row.names=FALSE,col.names=FALSE)
+    if (diccionari_correcte(data)) {
+      data <- data[order(data[,"paraula"]),]
+      write.csv(data, ruta, fileEncoding="utf-8", row.names=FALSE)
+    }
+  })
+}
+
+actualitzar_pendents <- function() {
+  ruta_diccionari = "../backend/diccionari.csv"
+  ruta_pendents = "../paraules_pendents.txt"
+  diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
+  pendents <- read.table(ruta_pendents, fileEncoding="utf-8", stringsAsFactors = FALSE)[,1]
+  
+  if (diccionari_correcte(diccionari)) {
+    expresions <- sapply(apply(diccionari[,1:2], 1, paste, collapse = " "), trimws)
+  
+    pendents <- data.frame(pendents[!sapply(pendents, function(p){p %in% expresions})])
+
+    write.table(pendents, ruta_pendents, fileEncoding="utf-8", row.names=FALSE, col.names=FALSE)
+  }
 }
