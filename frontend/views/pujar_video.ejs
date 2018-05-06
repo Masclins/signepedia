@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+        Signepèdia - Col·laborar
+    </title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <% if(missatge == "exit") { %>
+        <p>Hem rebut el teu vídeo.<br>Moltes gràcies per col·laborar!</p>
+          <form action="/pujar_video" method="get">
+            <input type="submit" class = "ghost-button" value="Afegeix un altre signe">
+          </form>
+          <form action="/" method="get">
+            <input type="submit" class = "ghost-button" value="Torna a la Signepèdia">
+          </form>
+      <% } else if (missatge == "fail") { %>
+        <p>Ho sentim. No s'ha pogut carregar el teu vídeo.</p>
+          <form action="/pujar_video" method="get">
+            <input type="submit" class = "ghost-button" value="Torna-ho a intentar">
+          </form>
+          <form action="/" method="get">
+            <input type="submit" class = "ghost-button" value="Torna a la Signepèdia">
+          </form>
+      <% } else { %>
+        <p>Col·labora afegint un nou vídeo</p>
+        <fieldset>
+          <form action="/pujar_video" method="post" encType="multipart/form-data">
+            <input name="autor" type="text" class="ghost-input" placeholder="Autor del vídeo" required>
+            <input name="email" type="text" class="ghost-input" placeholder="Correu electrònic" required>
+            <input name="paraula" type="text" class="ghost-input" placeholder="Paraula a afegir" required>
+            <input name="comentari" type="text" class="ghost-input" placeholder="Comentaris de la paraula">
+            <input name="video" type="file" required><br>
+            <input type="submit" class="ghost-button" value="Envia'ns el vídeo">
+          </form>
+        </fieldset>
+      <% } %>
+    </div>
+    <div class="footer">
+        Utilitzem les APIs de
+        <a href="https://languagetool.org/">LanguageTool</a>
+        i
+        <a href="https://openthesaurus.softcatala.org/">OpenThesaurus-ca</a>
+    </div>
+  </body>
+</html>

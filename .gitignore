@@ -3,6 +3,8 @@
 backend/__pycache__/*
 backend/*/__pycache__/*
 
+frontend/node_modules
+
 .Rproj.user
 scripts/.Rhistory
 scripts/.RData
