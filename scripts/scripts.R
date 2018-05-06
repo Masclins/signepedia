@@ -25,6 +25,7 @@ ordenar_alfabeticament <- function() {
   }, finally = {
 
     if (diccionari_correcte(data)) {
+      data <- data[order(data[,"nota"]),]
       data <- data[order(data[,"paraula"]),]
       write.csv(data, ruta_diccionari, fileEncoding="utf-8", row.names=FALSE)
     }
@@ -46,7 +47,7 @@ actualitzar_pendents <- function() {
   }
 }
 
-paraules_repetides <- funcion() {
+paraules_repetides <- function() {
   ruta_diccionari = "../backend/diccionari.csv"
   diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
   
@@ -54,5 +55,11 @@ paraules_repetides <- funcion() {
   diccionari[duplicated(expresions),1:2]
 }
 
-
-
+videos_sense_us <- function() {
+  ruta_diccionari = "../backend/diccionari.csv"
+  diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
+  urls <- diccionari[,"url"]
+  videos <- paste0("videos/", list.files("../frontend/public/videos/"))
+  
+  videos[!sapply(videos, function(v){v %in% urls})]
+}
