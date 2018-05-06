@@ -14,9 +14,9 @@ diccionari_correcte <- function(diccionari) {
 }
 
 ordenar_alfabeticament <- function() {
-  ruta = "../backend/diccionari.csv"
+  ruta_diccionari = "../backend/diccionari.csv"
   tryCatch({
-    data <- read.csv(ruta, fileEncoding="utf-8", stringsAsFactors = FALSE)
+    data <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
     
   }, warning = function(w) {
     print(w)
@@ -26,7 +26,7 @@ ordenar_alfabeticament <- function() {
 
     if (diccionari_correcte(data)) {
       data <- data[order(data[,"paraula"]),]
-      write.csv(data, ruta, fileEncoding="utf-8", row.names=FALSE)
+      write.csv(data, ruta_diccionari, fileEncoding="utf-8", row.names=FALSE)
     }
   })
 }
@@ -45,3 +45,14 @@ actualitzar_pendents <- function() {
     write.table(pendents, ruta_pendents, fileEncoding="utf-8", row.names=FALSE, col.names=FALSE)
   }
 }
+
+paraules_repetides <- funcion() {
+  ruta_diccionari = "../backend/diccionari.csv"
+  diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
+  
+  expresions <- sapply(apply(diccionari[,1:2], 1, paste, collapse = " "), trimws)
+  diccionari[duplicated(expresions),1:2]
+}
+
+
+

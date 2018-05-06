@@ -15,18 +15,21 @@
     <div class="container">
       <fieldset>
         <form action="/" method="post">
-          <input name="paraula" type="text" class="ghost-input" placeholder="Cerca una paraula" required>
-          <input type="submit" class="ghost-button" value="Video en LSC">
+          <input name="paraula" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
+          <input type="submit" class="ghost-button" value="Tradueix-la a LSC">
         </form>
-        <% if(resultat !== null) { %>
-        <p><%- resultat %></p>
-        <% } %>
       </fieldset>
     </div>
+    <div>
+        <% if(resultat !== null) { %>
+            <p><%- resultat %></p>
+        <% } %>
+    </div>
     <div class="footer">
-        Utilitzem les APIs de: 
-        <a href="https://openthesaurus.softcatala.org/">https://openthesaurus.softcatala.org/</a>
-        <a href="https://languagetool.org/">https://languagetool.org/</a>
+        Utilitzem les APIs de
+        <a href="https://languagetool.org/">LanguageTool</a>
+        i
+        <a href="https://openthesaurus.softcatala.org/">OpenThesaurus-ca</a>
     </div>
   </body>
 </html>
