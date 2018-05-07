@@ -12,20 +12,25 @@
     <div class="container">
       <% if(missatge == "exit") { %>
         <p>Hem rebut el teu vídeo.<br>Moltes gràcies per col·laborar!</p>
-          <form action="/pujar_video" method="get">
-            <input type="submit" class = "ghost-button" value="Afegeix un altre signe">
-          </form>
-          <form action="/" method="get">
-            <input type="submit" class = "ghost-button" value="Torna a la Signepèdia">
-          </form>
+        <form action="/pujar_video" method="get">
+          <input type="submit" class = "ghost-button" value="Afegeix un altre signe">
+        </form>
+        <form action="/" method="get">
+          <input type="submit" class = "ghost-button" value="Torna a la Signepèdia">
+        </form>
       <% } else if (missatge == "fail") { %>
-        <p>Ho sentim. No s'ha pogut carregar el teu vídeo.</p>
-          <form action="/pujar_video" method="get">
-            <input type="submit" class = "ghost-button" value="Torna-ho a intentar">
-          </form>
-          <form action="/" method="get">
-            <input type="submit" class = "ghost-button" value="Torna a la Signepèdia">
-          </form>
+        <p>Ho sentim.<br>Per un problema en el servidor no s'ha pogut enviar el teu vídeo.</p>
+        <form action="/pujar_video" method="get">
+          <input type="submit" class = "ghost-button" value="Torna-ho a intentar">
+        </form>
+        <form action="/" method="get">
+          <input type="submit" class = "ghost-button" value="Torna a la Signepèdia">
+        </form>
+	  <% } else if (missatge == "inhabilitat") { %>
+	    <p>Ho sentim.<br>El servei de enviament de vídeos està temporalment deshabilitat.</p>
+		<form action="/" method="get">
+          <input type="submit" class = "ghost-button" value="Torna a la Signepèdia">
+        </form>
       <% } else { %>
         <p>Col·labora afegint un nou vídeo</p>
         <fieldset>

@@ -15,6 +15,15 @@ Cal instal·lar [Docker](https://store.docker.com/search?type=edition&offering=c
 Cal tenir una terminal executant `docker-compose up --build` des de la carpeta del projecte.
 L'aplicació és accessible des del navegador, a `localhost:8080`.
 
+Per permetre la pujada de vídeos des del frontend cal crear l'arxiu `frontend/dades_correu.json`.
+En aquest arxiu ha d'haver-hi:
+```json
+{
+	"usuari": EMAIL,
+	"contrasenya": CONTRASENYA
+}
+```
+
 ## Llicència
 
 Copyright © 2018 Albert Masclans

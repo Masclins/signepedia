@@ -1,6 +1,9 @@
 ﻿const request = require('request');
 const nodemailer = require('nodemailer');
 const creaHTML = require('./creaHTML.js');
+const fs = require("fs");
+
+var dadesCorreu;
 
 module.exports = {
 	
@@ -32,30 +35,37 @@ module.exports = {
 			}
 		});
 		
-		var transporter = nodemailer.createTransport({
-			service: 'gmail',
-			auth: {
-				user: 'signepedia@gmail.com',
-				pass: 'ensignopedia'
-			}
-		});
-		
-		var mailOptions = {
-			from: 'signepedia@gmail.com',
-			to: 'signepedia@gmail.com',
-			subject: 'Nou video: ' + req.body.paraula,
-			html: 'Autor: ' + req.body.autor
-				  + '<br>Correu: ' + req.body.email
-				  + '<br>Parula: ' + req.body.paraula
-				  + '<br>Comentari: ' + req.body.comentari,
-			attachments: [{filename: req.body.paraula + '.mp4', path: '/video_tmp.mp4'}]
-		};
-		
-		transporter.sendMail(mailOptions, function(error, info) {
-			if (error) {
+		fs.readFile("./dades_correu.json", "utf8", function (err, data) {
+			if (err) {
 				res.render("pujar_video", {missatge: "fail"});
 			} else {
-				res.render("pujar_video", {missatge: "exit"});
+				dadesCorreu = JSON.parse(data);
+				var transporter = nodemailer.createTransport({
+					service: 'gmail',
+					auth: {
+						user: dadesCorreu.usuari,
+						pass: dadesCorreu.contrasenya
+					}
+				});
+				
+				var mailOptions = {
+					from: dadesCorreu.usuari,
+					to: 'signepedia@gmail.com',
+					subject: 'Nou video: ' + req.body.paraula,
+					html: 'Autor: ' + req.body.autor
+						  + '<br>Correu: ' + req.body.email
+						  + '<br>Parula: ' + req.body.paraula
+						  + '<br>Comentari: ' + req.body.comentari,
+					attachments: [{filename: req.body.paraula + '.mp4', path: '/video_tmp.mp4'}]
+				};
+				
+				transporter.sendMail(mailOptions, function(error, info) {
+					if (error) {
+						res.render("pujar_video", {missatge: "fail"});
+					} else {
+						res.render("pujar_video", {missatge: "exit"});
+					}
+				});
 			}
 		});
 	}
