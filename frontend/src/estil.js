@@ -1,16 +1,25 @@
-module.exports = {
 
-    // Retorna un vector com un string enumerant els seus elements.
-    separa_comes: function(vector) {
-        r = '"' + vector[0] + '"';
-        if (vector.length == 1) {
-    	    return r+'.';
-        } else if (vector.length > 2) {
-    	for (i = 1; i < vector.length-1; ++i) {
-    	        r += ', "' + vector[i] + '"';
-	    }
+// Converteix una paraula en un botó invisible.
+// Que sigui invisible depen del CSS de la "class".
+function botoInvisible(paraula) {
+    return "<button class='invisible' name='paraula' value='" + paraula + "'>\"" + paraula + "\"</button>";
+}
+
+module.exports = {
+    
+    botoInvisible,
+
+    // Retorna un vector de paraules com un string enumerant els seus elements.
+    separaComes(paraules) {
+        var r = botoInvisible(paraules[0]);
+        if (paraules.length === 1) {
+            return r + ".";
+        } else if (paraules.length > 2) {
+            for (var i = 1; i < paraules.length-1; ++i) {
+                r += ", " + botoInvisible(paraules[i]);
+            }
         }
-        r += ' o "' + vector[vector.length-1] + '".';
+        r += " o " + botoInvisible(paraules[paraules.length-1]) + ".";
         return r;
     }
 }

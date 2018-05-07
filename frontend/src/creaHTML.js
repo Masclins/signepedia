@@ -2,6 +2,10 @@ const estil = require('./estil.js');
 const width = 480;
 const height = 360;
 
+function creaForm(str) {
+    return "<form action='/' method='post'>" + str + "</form>";
+}
+
 module.exports = {
 
     // Retorna el codi HTML per mostrar un vídeo.
@@ -13,7 +17,7 @@ module.exports = {
             if (entrada.paraula === undefined) {
                 return null;
             } else {
-                return 'Ho sentim, no tenim "' + entrada.paraula + '" registrada.';
+                return "Ho sentim, no tenim \"" + entrada.paraula + "\" registrada.";
             }
         } else if (entrada.origen === "youtube") {
             return "<iframe width='" + width + "' height='" + height + "' allow='autoplay' src='" + entrada.url + "?&autoplay=1&mute=1&rel=0&showinfo=0'></iframe>";
@@ -22,11 +26,15 @@ module.exports = {
         }
     },
 
+    // Retorna les alternatives, sinonims o correccio.
+    // Els converteix en una <form> per fer que cada paraula sigui un <button>.
+    // D'aquesta manera al apretar-los es pot fer un POST request.
+    
     alternatives: function(entrada) {
         if (entrada.alternatives == undefined) {
             return null;
         } else {
-            return "Potser t'interessa: " + estil.separa_comes(entrada.alternatives);
+            return creaForm("Potser t'interessa: " + estil.separaComes(entrada.alternatives));
         }
     },
 
@@ -34,7 +42,7 @@ module.exports = {
         if (entrada.sinonims === undefined) {
             return null;
         } else {
-            return "Pots cercar els sinònims: " + estil.separa_comes(entrada.sinonims);
+            return creaForm("Pots cercar els sinònims: " + estil.separaComes(entrada.sinonims));
         }
     },
 
@@ -42,7 +50,7 @@ module.exports = {
         if (entrada.correccio === undefined) {
             return null;
         } else {
-            return 'Potser volies dir "' + entrada.correccio + '"?';
+            return creaForm("Potser volies dir " + estil.botoInvisible(entrada.correccio) + "?");
         }
     }
 }

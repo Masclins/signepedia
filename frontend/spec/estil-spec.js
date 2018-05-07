@@ -1,12 +1,12 @@
 const estil = require('../src/estil.js');
 
-describe("Tests de separa_comes", function () {
+describe("Tests de separaComes", function () {
     it("Hauria de retornar una enumeració", function () {
-        expect(estil.separa_comes(["un"]))
-        .toBe('"un".');
-        expect(estil.separa_comes(["a", "b", "c"]))
-        .toBe('"a", "b" o "c".');
-        expect(estil.separa_comes(["xip", "xop"]))
-        .toBe('"xip" o "xop".');
+        expect(estil.separaComes(["un"]))
+        .toBe("<button class='invisible' name='paraula' value='un'>\"un\"</button>.");
+        expect(estil.separaComes(["a", "b", "c"]))
+        .toBe("<button class='invisible' name='paraula' value='a'>\"a\"</button>, <button class='invisible' name='paraula' value='b'>\"b\"</button> o <button class='invisible' name='paraula' value='c'>\"c\"</button>.");
+        expect(estil.separaComes(["xip", "xop"]))
+        .toBe("<button class='invisible' name='paraula' value='xip'>\"xip\"</button> o <button class='invisible' name='paraula' value='xop'>\"xop\"</button>.");
     });
 });
