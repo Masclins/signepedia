@@ -21,8 +21,17 @@
       </fieldset>
     </div>
     <div>
-        <% if(resultat !== null) { %>
-            <p><%- resultat %></p>
+        <% if(video !== null) { %>
+          <p><%- video %></p>
+        <% } %>
+        <% if(alternatives !== null) { %>
+          <p><%- alternatives %></p>
+        <% } %>
+        <% if(sinonims !== null) { %>
+          <p><%- sinonims %></p>
+        <% } %>
+        <% if(correccio !== null) { %>
+          <p><%- correccio %></p>
         <% } %>
     </div>
     <div class="container">

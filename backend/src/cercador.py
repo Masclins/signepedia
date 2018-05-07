@@ -16,7 +16,7 @@ def uneix_paraula_nota(paraula, nota):
     if nota == "":
         return paraula
     char0 = nota[0]
-    if char0 == "-" or char0 == "'" or char0 == "?":
+    if char0 == "-" or char0 == "'" or char0 == "?" or char0 == ",":
         return paraula + nota
     else:
         return paraula + " " + nota

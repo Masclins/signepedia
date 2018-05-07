@@ -4,6 +4,7 @@ backend/__pycache__/*
 backend/*/__pycache__/*
 
 frontend/node_modules
+frontend/package-lock.json
 
 .Rproj.user
 scripts/.Rhistory

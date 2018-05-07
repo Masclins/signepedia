@@ -70,6 +70,7 @@ fieldset {
 }
 .footer {
     position: absolute;
+    text-align: right;
     bottom: 0;
     left: 0;
     right: 0;
