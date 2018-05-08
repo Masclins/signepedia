@@ -1,7 +1,7 @@
 import requests
 from src import cercador
 
-# Obtenim la correcció ortogràfica d'una "paraula" a través de LanguageTool.
+# Obtenim les correccions ortogràfiques d'una "paraula" a través de LanguageTool.
 # Si no hi ha correcció, retornem "None".
 # Cal evitar saturar el servidor.
 
@@ -12,7 +12,10 @@ def get_correccio(paraula):
         missatge = resposta["shortMessage"]
         correccions = resposta["replacements"]
         if (correccions) and missatge == "Error ortogràfic":
-            return correccions[0]["value"]
+            paraules = []
+            for correccio in correccions:
+                paraules.append(correccio["value"])
+            return paraules
         return None
     except:
         return None
@@ -20,9 +23,10 @@ def get_correccio(paraula):
 # Retornem un mapa amb la possible correcció d'una "paraula" si la tenim registrada.
 
 def corregeix_paraula(paraula):
-    correccio = get_correccio(paraula)
-    if correccio != None:
-        if cercador.tenim_entrada(correccio):
-            return dict(paraula=paraula, correccio=correccio)
+    correccions = get_correccio(paraula)
+    if correccions != None:
+        for correccio in correccions:
+            if cercador.tenim_entrada(correccio):
+                return dict(paraula=paraula, correccio=correccio)
     
     return dict(paraula=paraula)

@@ -7,7 +7,7 @@ def tenim_entrada(paraula):
     with open("diccionari.csv") as diccionariCSV:
         diccionari = csv.DictReader(diccionariCSV)
         for entrada in diccionari:
-            if (entrada["paraula"] == paraula):
+            if (entrada["paraula"].lower() == paraula.lower()):
                 return True
 
         return False
@@ -29,10 +29,11 @@ def obte_entrada(paraula):
         diccionari = csv.DictReader(diccionariCSV)
         for entrada in diccionari:
             paraula_entrada = uneix_paraula_nota(entrada["paraula"], entrada["nota"])
-            if paraula_entrada == paraula:
+            if paraula_entrada.lower() == paraula.lower():
                 entrada_resultat = entrada
-                entrada_resultat["paraula"] = paraula_entrada
-            elif entrada["paraula"] == paraula:
+                entrada_resultat["paraula"] = paraula
+                del entrada_resultat["nota"]
+            elif entrada["paraula"].lower() == paraula.lower():
                 alternatives.append(paraula_entrada)
 
     if alternatives:

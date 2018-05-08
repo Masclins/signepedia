@@ -6,7 +6,6 @@ import unittest
 
 class TestDiccionari(unittest.TestCase):
 
-    @classmethod
     def diccionari_correcte(self):
         with open("diccionari.csv") as diccionariCSV:
             diccionari = csv.DictReader(diccionariCSV)

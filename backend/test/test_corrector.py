@@ -11,7 +11,9 @@ class TestCorrector(unittest.TestCase):
     # No en fem més per evitar saturar el servidor.
 
     def test_obte_correccio(self):
-        self.assertEqual(corrector.get_correccio("clase"), "classe")
+        correccions = corrector.get_correccio("clase")
+        self.assertEqual(correccions[0], "classe")
+        self.assertEqual(correccions[1], "casa")
 
     def test_falla(self):
         self.assertEqual(corrector.get_correccio("jksdfjfqp"), None)

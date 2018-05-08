@@ -10,10 +10,10 @@ from src import corrector
 # 4- Correcció ortogràfica de "paraula"
 
 def retorna_entrada(paraula):
-    entrada = cercador.obte_entrada(paraula.lower())
+    entrada = cercador.obte_entrada(paraula)
     if entrada != None:
         return entrada
-    alternativa = sinonims.troba_sinonims(paraula.lower())
+    alternativa = sinonims.troba_sinonims(paraula)
     if "sinonims" in alternativa:
         return alternativa
-    return corrector.corregeix_paraula(paraula.lower())       
+    return corrector.corregeix_paraula(paraula)       

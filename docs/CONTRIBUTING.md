@@ -7,7 +7,7 @@ Els vídeos s'haurien de gravar amb bona llum, ben enfocats, amb fons llis, roba
 
 Els vídeos gravats hauran de desar-se, en format `.mp4` a la carpeta `frontend/public/videos`. L'arxiu ha de tenir un nom únic, com la paraula gravada en minúscules (incloent-hi les notes, si cal).
 ### Entrada al diccionari
-El vocabulari ha d'estar tot present a `backend/diccionari.csv`. Per afegiri-hi una nova paraula caldrà fer-ho en una nova línea. Els camps del `.csv` estan a la primera línea: `"paraula","nota","url","origen","autor"`. Tots els camps han de ser presents, però poden estar buits (indicat simplement amb `""`).
+El vocabulari ha d'estar tot present a `backend/diccionari.csv`. Per afegiri-hi una nova paraula caldrà fer-ho en una nova línea. Els camps del `.csv` estan a la primera línea: `"paraula","nota","url","origen","autor"`. Tots els camps han de ser presents, però poden estar buits (indicat simplement amb `""`). Només els noms pròpis haurien d'estar amb la primera en majúscules.
 
 Exemples d'entrada:
 * Paraula *exemple*, en el repositori (carpeta `frontend/public/videos`), gravat per *Masclins*:
