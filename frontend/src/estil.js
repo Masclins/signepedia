@@ -22,4 +22,4 @@ module.exports = {
         r += " o " + botoInvisible(paraules[paraules.length-1]) + ".";
         return r;
     }
-}
+};

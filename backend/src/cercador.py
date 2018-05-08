@@ -18,8 +18,7 @@ def uneix_paraula_nota(paraula, nota):
     char0 = nota[0]
     if char0 == "-" or char0 == "'" or char0 == "?" or char0 == ",":
         return paraula + nota
-    else:
-        return paraula + " " + nota
+    return paraula + " " + nota
 
 # Retornem l'entrada del diccionari, i alternatives, d'una "paraula".
 
@@ -36,7 +35,7 @@ def obte_entrada(paraula):
             elif entrada["paraula"] == paraula:
                 alternatives.append(paraula_entrada)
 
-    if len(alternatives) != 0:
+    if alternatives:
         if entrada_resultat != None:
             entrada_resultat["alternatives"] = alternatives
         else:

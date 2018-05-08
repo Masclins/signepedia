@@ -11,10 +11,9 @@ def get_correccio(paraula):
         resposta = req.json()["matches"][0]
         missatge = resposta["shortMessage"]
         correccions = resposta["replacements"]
-        if (len(correccions) == 0 or missatge != "Error ortogràfic"):
-            return None
-        else:
+        if (correccions) and missatge == "Error ortogràfic":
             return correccions[0]["value"]
+        return None
     except:
         return None
 

@@ -59,7 +59,7 @@ module.exports = {
 					attachments: [{filename: req.body.paraula + '.mp4', path: '/video_tmp.mp4'}]
 				};
 				
-				transporter.sendMail(mailOptions, function(error, info) {
+				transporter.sendMail(mailOptions, function(error) {
 					if (error) {
 						res.render("pujar_video", {missatge: "fail"});
 					} else {

@@ -29,8 +29,6 @@ def troba_sinonims(paraula):
         if cercador.tenim_entrada(sinonim):
             paraules.append(sinonim)
 
-    if len(paraules) == 0:
-        return dict(paraula=paraula)
-    else:
+    if paraules:
         return dict(paraula=paraula, sinonims=paraules)
-
+    return dict(paraula=paraula)

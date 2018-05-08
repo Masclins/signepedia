@@ -13,7 +13,7 @@ describe("Tests de videoHTML", function () {
 
     it("Hauria de disculpar-se", function () {
         expect(creaHTML.videoHTML({"paraula": "missigno", "attr": "val"}))
-        .toBe('Ho sentim, no tenim "missigno" registrada.');
+        .toBe("Ho sentim, no tenim \"missigno\" registrada.");
     });
 
     it("Hauria de retornar null", function () {

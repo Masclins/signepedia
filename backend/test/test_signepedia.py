@@ -2,7 +2,7 @@ from src import signepedia
 import unittest
 
 class TestSignepedia(unittest.TestCase):
- 
+
     #########################
     # Tests retorna_entrada #
     #########################

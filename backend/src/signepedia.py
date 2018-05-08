@@ -13,10 +13,7 @@ def retorna_entrada(paraula):
     entrada = cercador.obte_entrada(paraula.lower())
     if entrada != None:
         return entrada
-    else:
-        alternativa = sinonims.troba_sinonims(paraula.lower())
-        if "sinonims" in alternativa:
-            return alternativa
-        else:
-            return corrector.corregeix_paraula(paraula.lower())
-           
+    alternativa = sinonims.troba_sinonims(paraula.lower())
+    if "sinonims" in alternativa:
+        return alternativa
+    return corrector.corregeix_paraula(paraula.lower())       

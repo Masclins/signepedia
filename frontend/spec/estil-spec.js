@@ -1,4 +1,4 @@
-const estil = require('../src/estil.js');
+const estil = require("../src/estil.js");
 
 describe("Tests de separaComes", function () {
     it("Hauria de retornar una enumeració", function () {

@@ -1,4 +1,4 @@
-const estil = require('./estil.js');
+const estil = require("./estil.js");
 const width = 480;
 const height = 360;
 
@@ -12,9 +12,9 @@ module.exports = {
     // Si l'"origen" és youtube, retorna un <iframe>.
     // Altrament, retorna un <video>.
 
-    videoHTML: function(entrada) {
-        if (entrada.url === undefined) {
-            if (entrada.paraula === undefined) {
+    videoHTML(entrada) {
+        if (entrada.url == null) {
+            if (entrada.paraula == null) {
                 return null;
             } else {
                 return "Ho sentim, no tenim \"" + entrada.paraula + "\" registrada.";
@@ -30,27 +30,27 @@ module.exports = {
     // Els converteix en una <form> per fer que cada paraula sigui un <button>.
     // D'aquesta manera al apretar-los es pot fer un POST request.
     
-    alternatives: function(entrada) {
-        if (entrada.alternatives == undefined) {
+    alternatives(entrada) {
+        if (entrada.alternatives == null) {
             return null;
         } else {
             return creaForm("Potser t'interessa: " + estil.separaComes(entrada.alternatives));
         }
     },
 
-    sinonims: function(entrada) {
-        if (entrada.sinonims === undefined) {
+    sinonims(entrada) {
+        if (entrada.sinonims == null) {
             return null;
         } else {
             return creaForm("Pots cercar els sinònims: " + estil.separaComes(entrada.sinonims));
         }
     },
 
-    correccio: function(entrada) {
-        if (entrada.correccio === undefined) {
+    correccio(entrada) {
+        if (entrada.correccio == null) {
             return null;
         } else {
             return creaForm("Potser volies dir " + estil.botoInvisible(entrada.correccio) + "?");
         }
     }
-}
+};

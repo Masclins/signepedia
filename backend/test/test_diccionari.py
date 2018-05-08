@@ -1,4 +1,3 @@
-import os.path
 import csv
 import unittest
 
@@ -7,6 +6,7 @@ import unittest
 
 class TestDiccionari(unittest.TestCase):
 
+    @classmethod
     def diccionari_correcte(self):
         with open("diccionari.csv") as diccionariCSV:
             diccionari = csv.DictReader(diccionariCSV)
@@ -21,6 +21,6 @@ class TestDiccionari(unittest.TestCase):
 
     def test_camps(self):
         self.assertTrue(self.diccionari_correcte())
-    
+
 if __name__ == '__main__':
     unittest.main()

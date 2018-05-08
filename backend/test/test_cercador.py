@@ -6,7 +6,7 @@ class TestCercador(unittest.TestCase):
     #######################
     # Tests tenim_entrada #
     #######################
-    
+
     # Comprovem que respon correctament
     def test_tenim_entrada(self):
         self.assertTrue(cercador.tenim_entrada("zebra"))
