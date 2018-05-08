@@ -17,13 +17,13 @@ app.get("/", function(req, res) {
 
 // Carreguem la pàgina principal, sense cap missatge
 app.get("/pujar_video", function(req, res) {
-	fs.access("./dades_correu.json", (err) => {
-		if (err) {
-			res.render("pujar_video", {missatge: "inhabilitat"});
-		} else {
-			res.render("pujar_video", {missatge: null});
-		}
-	});
+    fs.access("./dades_correu.json", (err) => {
+        if (err) {
+            res.render("pujar_video", {missatge: "inhabilitat"});
+        } else {
+            res.render("pujar_video", {missatge: null});
+        }
+    });
 });
 
 // Rebem una petició POST. Les gestiona restRequests.
