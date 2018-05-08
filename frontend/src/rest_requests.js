@@ -1,6 +1,6 @@
-﻿const request = require('request');
-const nodemailer = require('nodemailer');
-const creaHTML = require('./creaHTML.js');
+﻿const request = require("request");
+const nodemailer = require("nodemailer");
+const creaHTML = require("./creaHTML.js");
 const fs = require("fs");
 
 var dadesCorreu;
@@ -9,13 +9,13 @@ module.exports = {
 	
 	// Cerca una paraula a partir d'una REST request.
 	
-	cerca:  function (req, res) {
+	cerca(req, res) {
 		let paraula = req.body.paraula;
-		let url = `http://backend:5000/diccionari/${paraula}`
+		let url = `http://backend:5000/diccionari/${paraula}`;
 		request(url, function (err, response, body) {
 			let entrada = JSON.parse(body);
 			res.render("index", {
-                            paraula: paraula,
+                            paraula,
                             video: creaHTML.videoHTML(entrada),
                             alternatives: creaHTML.alternatives(entrada),
                             sinonims: creaHTML.sinonims(entrada),
@@ -26,10 +26,10 @@ module.exports = {
 	
 	// Puja un video a partir d'una REST request.
 	
-	puja_video: function (req, res) {
+	pujaVideo(req, res) {
 		let video = req.files.video;
 		
-		video.mv('/video_tmp.mp4', function(err) {
+		video.mv("/video_tmp.mp4", function(err) {
 			if (err) {
 				return res.status(500).send(err);
 			}
@@ -41,7 +41,7 @@ module.exports = {
 			} else {
 				dadesCorreu = JSON.parse(data);
 				var transporter = nodemailer.createTransport({
-					service: 'gmail',
+					service: "gmail",
 					auth: {
 						user: dadesCorreu.usuari,
 						pass: dadesCorreu.contrasenya
@@ -50,13 +50,13 @@ module.exports = {
 				
 				var mailOptions = {
 					from: dadesCorreu.usuari,
-					to: 'signepedia@gmail.com',
-					subject: 'Nou video: ' + req.body.paraula,
-					html: 'Autor: ' + req.body.autor
-						  + '<br>Correu: ' + req.body.email
-						  + '<br>Parula: ' + req.body.paraula
-						  + '<br>Comentari: ' + req.body.comentari,
-					attachments: [{filename: req.body.paraula + '.mp4', path: '/video_tmp.mp4'}]
+					to: "signepedia@gmail.com",
+					subject: "Nou video: " + req.body.paraula,
+					html: "Autor: " + req.body.autor
+                                            + "<br>Correu: " + req.body.email
+                                            + "<br>Parula: " + req.body.paraula
+                                            + "<br>Comentari: " + req.body.comentari,
+					attachments: [{filename: req.body.paraula + ".mp4", path: "/video_tmp.mp4"}]
 				};
 				
 				transporter.sendMail(mailOptions, function(error) {
@@ -69,4 +69,4 @@ module.exports = {
 			}
 		});
 	}
-}
+};

@@ -7,8 +7,8 @@ describe("Tests de videoHTML", function () {
     });
 
     it("Hauria de retornar un <video>", function () {
-        expect(creaHTML.videoHTML({"url": "URL2", "origen": "patata"}))
-        .toBe("<video width='480' height='360' controls autoplay muted src='URL2'></video>");
+        expect(creaHTML.videoHTML({"url": "URL2", "origen": "patata", "autor": "Mr. Patata"}))
+        .toBe("<video width='480' height='360' controls autoplay muted src='URL2'></video><br><p class='autor'>Autor/a del vídeo: Mr. Patata.</p>");
     });
 
     it("Hauria de disculpar-se", function () {

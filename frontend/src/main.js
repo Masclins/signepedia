@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const restRequests = require("./rest_requests.js");
-const fileUpload = require('express-fileupload');
+const fileUpload = require("express-fileupload");
 const fs = require("fs");
 const app = express();
 
@@ -29,7 +29,7 @@ app.get("/pujar_video", function(req, res) {
 // Rebem una petició POST. Les gestiona restRequests.
 app.post("/", restRequests.cerca);
 
-app.post("/pujar_video", restRequests.puja_video);
+app.post("/pujar_video", restRequests.pujaVideo);
 
 app.listen(8080, function() {
 });

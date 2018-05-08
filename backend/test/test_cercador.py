@@ -49,7 +49,7 @@ class TestCercador(unittest.TestCase):
             self.assertFalse("correccio" in entrada)
             self.assertEqual(entrada["origen"], origen)
             self.assertEqual(cercador.obte_entrada(paraula)["url"], url)
- 
+
     def test_obte_entrada_alternatives(self):
         paraules = ("ajudant", "abans")
         alternatives_v = (["ajudant (a la feina)", "ajudant (auxiliar)"],["abans d'ahir"])

@@ -22,7 +22,7 @@ module.exports = {
         } else if (entrada.origen === "youtube") {
             return "<iframe width='" + width + "' height='" + height + "' allow='autoplay' src='" + entrada.url + "?&autoplay=1&mute=1&rel=0&showinfo=0'></iframe>";
         } else {
-            return "<video width='" + width + "' height='" + height + "' controls autoplay muted src='" + entrada.url + "'></video>";
+            return "<video width='" + width + "' height='" + height + "' controls autoplay muted src='" + entrada.url + "'></video><br><p class='autor'>Autor/a del vídeo: " + entrada.autor + ".</p>";
         }
     },
 
