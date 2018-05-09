@@ -16,4 +16,4 @@ def retorna_entrada(paraula):
     alternativa = sinonims.troba_sinonims(paraula)
     if "sinonims" in alternativa:
         return alternativa
-    return corrector.corregeix_paraula(paraula)       
+    return corrector.corregeix_paraula(paraula)

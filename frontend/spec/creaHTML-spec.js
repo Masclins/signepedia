@@ -2,8 +2,8 @@ const creaHTML = require("../src/creaHTML.js");
 
 describe("Tests de videoHTML", function () {
     it("Hauria de retornar un <iframe>", function () {
-        expect(creaHTML.videoHTML({"url":"URL", "origen": "youtube"}))
-        .toBe("<iframe width='480' height='360' allow='autoplay' src='URL?&autoplay=1&mute=1&rel=0&showinfo=0'></iframe>");
+        expect(creaHTML.videoHTML({"url":"https://www.youtube.com/embed/c0dI", "qualsevol": "valor"}))
+        .toBe("<iframe width='480' height='360' allow='autoplay' src='https://www.youtube.com/embed/c0dI?&autoplay=1&mute=1&rel=0&showinfo=0'></iframe>");
     });
 
     it("Hauria de retornar un <video>", function () {

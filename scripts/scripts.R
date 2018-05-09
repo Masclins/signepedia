@@ -1,8 +1,7 @@
 diccionari_correcte <- function(diccionari) {
-  nota_correcte <- !grepl("embed", diccionari$nota)
-  origen_correcte <- (diccionari$origen == "youtube") | (diccionari$origen == "")
-  autor_correcte <- (diccionari$autor != "")
-  correcte <- nota_correcte & origen_correcte & autor_correcte
+  paraula_correcte <- diccionari$paraula != ""
+  buida_correcte <- diccionari$url != "" | (diccionari$autor == "" & diccionari$alternatives != "")
+  correcte <- paraula_correcte & buida_correcte
   
   if (sum(correcte) == nrow(diccionari)) {
     return(TRUE)
@@ -25,7 +24,6 @@ ordenar_alfabeticament <- function() {
   }, finally = {
 
     if (diccionari_correcte(data)) {
-      data <- data[order(data[,"nota"]),]
       data <- data[order(data[,"paraula"]),]
       write.csv(data, ruta_diccionari, fileEncoding="utf-8", row.names=FALSE)
     }
@@ -51,8 +49,7 @@ paraules_repetides <- function() {
   ruta_diccionari = "../backend/diccionari.csv"
   diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
   
-  expresions <- sapply(apply(diccionari[,1:2], 1, paste, collapse = " "), trimws)
-  diccionari[duplicated(expresions),1:2]
+  diccionari[duplicated(diccionari$paraula),"paraula"]
 }
 
 videos_sense_us <- function() {
@@ -62,4 +59,17 @@ videos_sense_us <- function() {
   videos <- paste0("videos/", list.files("../frontend/public/videos/"))
   
   videos[!sapply(videos, function(v){v %in% urls})]
+}
+
+alternatives_sense_entrada <- function() {
+  ruta_diccionari = "../backend/diccionari.csv"
+  diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
+  
+  print("alternatives sense entrada:")
+  apply(diccionari, 1, function(entrada){
+    
+    for(alternativa in strsplit(entrada["alternatives"], split="\\|")[[1]]){
+      if(!(alternativa %in% diccionari$paraula)) print(entrada["paraula"],alternativa)
+    }
+  })
 }

@@ -16,7 +16,7 @@ module.exports = {
         request(url, function (err, response, body) {
             let entrada = JSON.parse(body);
             res.render("index", {
-                            paraula,
+                            paraula: entrada.paraula, 
                             video: creaHTML.videoHTML(entrada),
                             alternatives: creaHTML.alternatives(entrada),
                             sinonims: creaHTML.sinonims(entrada),

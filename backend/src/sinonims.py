@@ -24,11 +24,12 @@ def get_sinonims(paraula):
 
 def troba_sinonims(paraula):
     sinonims = get_sinonims(paraula)
-    paraules = []
+    sinonimsRegistrats = []
     for sinonim in sinonims:
-        if cercador.tenim_entrada(sinonim):
-            paraules.append(sinonim)
+        sinonimRegistrat = cercador.tenim_entrada(sinonim)
+        if sinonimRegistrat != None:
+            sinonimsRegistrats.append(sinonimRegistrat)
 
-    if paraules:
-        return dict(paraula=paraula, sinonims=paraules)
+    if sinonimsRegistrats:
+        return dict(paraula=paraula, sinonims=sinonimsRegistrats)
     return dict(paraula=paraula)

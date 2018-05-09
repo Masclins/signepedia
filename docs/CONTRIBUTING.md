@@ -5,17 +5,23 @@ El funcionament del projecte es basa en crear *Issues* i fer *Pull-requests* que
 ### Videos gravats
 Els vídeos s'haurien de gravar amb bona llum, ben enfocats, amb fons llis, roba llisa i fosca i sense àudio.
 
-Els vídeos gravats hauran de desar-se, en format `.mp4` a la carpeta `frontend/public/videos`. L'arxiu ha de tenir un nom únic, com la paraula gravada en minúscules (incloent-hi les notes, si cal).
+Els vídeos gravats hauran de desar-se, en format `.mp4` a la carpeta `frontend/public/videos`. L'arxiu ha de tenir un nom únic, (a poder ser) com la paraula gravada en minúscules.
+
 ### Entrada al diccionari
-El vocabulari ha d'estar tot present a `backend/diccionari.csv`. Per afegiri-hi una nova paraula caldrà fer-ho en una nova línea. Els camps del `.csv` estan a la primera línea: `"paraula","nota","url","origen","autor"`. Tots els camps han de ser presents, però poden estar buits (indicat simplement amb `""`). Només els noms pròpis haurien d'estar amb la primera en majúscules.
+El vocabulari ha d'estar tot present a `backend/diccionari.csv`. Per afegiri-hi una nova paraula caldrà fer-ho en una nova línea. Els camps del `.csv` estan a la primera línea: `"paraula","url","autor","alternatives"`. Tots els camps han de ser presents, però poden estar buits (indicat simplement amb `""`). Només els noms pròpis haurien d'estar amb la primera en majúscules.
+
+La paraula es mostrarà quan es cerqui el que hi ha al camp `"paraula"`. Es poden fer diverses entrades si volem que surti per diferents cerques.
+
+Si volem que al cercar una paraula es mostrin altres propostes (o alternatives) s'ha de reflectir al camp `"alternatives"`. En aquest camp ha d'haver-hi totes les entrades que volem proposar a l'usuari separades per un `|`. Pot haver-hi entrades amb només `"paraula"` i  `"alternativa"`, quan és necessàri especificar (veure l'exemple de *rosa*).
 
 Exemples d'entrada:
 * Paraula *exemple*, en el repositori (carpeta `frontend/public/videos`), gravat per *Masclins*:
-`"exemple","","videos/exemple.mp4","","Masclins"`
-* Paraula *rosa*, referint-se a la flor, en una web en format `.wav`, gravat per *Pepito*:
-`"rosa","(flor)","http://webdelpepito.com/rosaLSC.wav","","Pepito"`
-* Paraula *cogombre*, a YouTube, de l'usuari *LSCyoutuber*:
-`"cogombre","","http://www.youtube.com/embed/c06oM8r3","youtube","LSCyoutuber"`
+`"exemple","videos/exemple.mp4","Masclins",""`
+* Paraula *rosa*, referint-se a la flor, en una web en format `.wav`, gravat per *Pepito*. Volem que *rosa* ens la proposi:
+`"rosa (flor)","http://webdelpepito.com/rosaLSC.wav","Pepito"`
+`"rosa","","","","rosa (flor)|rosa (color)"` (assumint que també existeix una entrada per *rosa (color)*.
+* Paraula *cogombre*, a YouTube, de l'usuari *LSCyoutuber*, que proposi *cogombret* (ha d'estar també registrada!):
+`"cogombre","http://www.youtube.com/embed/c06oM8r3","LSCyoutuber","cogombret"`
 
 ## Issues
 Una *issue* ha d'exposar un problema específic.

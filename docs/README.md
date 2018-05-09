@@ -8,6 +8,11 @@ Estudiant LSC hem observat que resulta manquen plataformes que continguin una qu
 
 Entenem aquesta eina com un suport a l'aprenentatge de la LSC, no com un metodologia en si mateixa.
 
+## Col·laborar
+Qualsevol comentari a les [Issues](https://github.com/Masclins/signepedia/issues?q=is%3Aissue+is%3Aopen+label%3Adiscussi%C3%B3) amb l'etiqueta *discussió* serà molt ben rebut i d'ajuda pel projecte.
+
+Per una col·laboració més activa es recomana llegir el document [`docs/CONTRIBUTING.md`](https://github.com/Masclins/signepedia/blob/nou-csv/docs/CONTRIBUTING.md).
+
 ## Instal·lació
 Cal instal·lar [Docker](https://store.docker.com/search?type=edition&offering=community) i clonar el repositori (`git clone https://github.com/Masclins/signepedia`).
 

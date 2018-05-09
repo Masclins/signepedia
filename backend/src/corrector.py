@@ -26,7 +26,8 @@ def corregeix_paraula(paraula):
     correccions = get_correccio(paraula)
     if correccions != None:
         for correccio in correccions:
-            if cercador.tenim_entrada(correccio):
-                return dict(paraula=paraula, correccio=correccio)
+            paraula_correcte =  cercador.tenim_entrada(correccio)
+            if paraula_correcte != None:
+                return dict(paraula=paraula, correccio=paraula_correcte)
     
     return dict(paraula=paraula)

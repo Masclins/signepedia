@@ -14,17 +14,12 @@ class TestCercador(unittest.TestCase):
         self.assertFalse(cercador.tenim_entrada("qkañ"))
         self.assertFalse(cercador.tenim_entrada("brunada"))
 
-    ############################
-    # Tests uneix_paraula_nota #
-    ############################
-
-    # Comprovem que uneix dues paraules com esperariem
-    def test_uneix_paraula_nota(self):
-        self.assertEqual(cercador.uneix_paraula_nota("alpha","omega"), "alpha omega")
-        self.assertEqual(cercador.uneix_paraula_nota("soleta",""), "soleta")
-        self.assertEqual(cercador.uneix_paraula_nota("el","-guió"), "el-guió")
-        self.assertEqual(cercador.uneix_paraula_nota("El","'delbar"), "El'delbar")
-        self.assertEqual(cercador.uneix_paraula_nota("Why so serious", "?"), "Why so serious?")
+    ########################
+    # Tests neteja_entrada #
+    ########################
+    def test_neteja_entrada(self):
+        self.assertEqual(cercador.neteja_entrada(dict(a="foo",b="",c="bar",alternatives="")),dict(a="foo",c="bar"))
+        self.assertEqual(cercador.neteja_entrada(dict(paraula="Hola",alternatives="Hola què tal?|Bon dia|Hola i adéu")),dict(paraula="Hola",alternatives=["Hola què tal?","Bon dia","Hola i adéu"]))
 
     ######################
     # Tests obte_entrada #
@@ -39,15 +34,14 @@ class TestCercador(unittest.TestCase):
     # Comprovem que el matching de la paraula amb diferents paràmetres de l'entrada és correcte.
     def test_obte_entrada(self):
         paraules = ("adreça", "1.000", "sant just", "ajudar-me", "abans")
+        paraulesReg = ("adreça", "1.000", "Sant Just", "ajudar-me", "abans")
         urls = ("videos/adreça.mp4", "https://www.youtube.com/embed/LqaR9NO8hmk", "https://www.youtube.com/embed/oawVAxU7wVA", "https://www.youtube.com/embed/XjsjQ_NUYJM", "https://www.youtube.com/embed/VMHoIzjYXt0")
-        origens = ("", "youtube", "youtube", "youtube", "youtube")
 
-        for paraula, url, origen in zip(paraules, urls, origens):
+        for paraula, paraulaReg, url in zip(paraules, paraulesReg, urls):
             entrada = cercador.obte_entrada(paraula)
-            self.assertEqual(entrada["paraula"], paraula)
+            self.assertEqual(entrada["paraula"], paraulaReg)
             self.assertFalse("sinonims" in entrada)
             self.assertFalse("correccio" in entrada)
-            self.assertEqual(entrada["origen"], origen)
             self.assertEqual(cercador.obte_entrada(paraula)["url"], url)
 
     def test_obte_entrada_alternatives(self):
