@@ -11,7 +11,7 @@ class TestSignepedia(unittest.TestCase):
     # No fem més de sinònims ni correcció per evitar enlentir els tests.
     def test_entrada_registrada(self):
         paraules = ("Màster", "sant jordi")
-        entrades = (dict(paraula="Màster",url="videos/màster.mp4",origen="",autor="Tània"), dict(paraula="sant jordi",url="https://www.youtube.com/embed/CG_5OFGV4NI",origen="youtube",autor="generalitat"))
+        entrades = (dict(paraula="Màster",url="videos/màster.mp4",origen="",autor="Tània Tebé"), dict(paraula="sant jordi",url="https://www.youtube.com/embed/CG_5OFGV4NI",origen="youtube",autor="generalitat"))
 
         for paraula, entrada in zip(paraules, entrades):
             self.assertEqual(signepedia.retorna_entrada(paraula), entrada)

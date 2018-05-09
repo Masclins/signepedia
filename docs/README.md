@@ -1,4 +1,4 @@
-# Signepedia
+# Signepedia [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bf1e9d692414d78be322f17841778f0)](https://app.codacy.com/app/masclins/signepedia?utm_source=github.com&utm_medium=referral&utm_content=Masclins/signepedia&utm_campaign=badger) [![CodeFactor](https://www.codefactor.io/repository/github/masclins/signepedia/badge)](https://www.codefactor.io/repository/github/masclins/signepedia)
 Dicionari cooperatiu i gratuït de català - Llengua de Signes Catalana (LSC).
 
 ## Objectiu
