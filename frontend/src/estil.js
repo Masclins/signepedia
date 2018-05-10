@@ -2,7 +2,7 @@
 // Converteix una paraula en un botó invisible.
 // Que sigui invisible depen del CSS de la "class".
 function botoInvisible(paraula) {
-    return "<button class='invisible' name='paraula' value='" + paraula + "'>\"" + paraula + "\"</button>";
+    return "<button class=\"invisible\" name=\"paraula\" value=\"" + paraula + "\">\"" + paraula + "\"</button>";
 }
 
 module.exports = {
