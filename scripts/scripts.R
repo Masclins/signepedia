@@ -67,9 +67,8 @@ alternatives_sense_entrada <- function() {
   
   print("alternatives sense entrada:")
   apply(diccionari, 1, function(entrada){
-    
     for(alternativa in strsplit(entrada["alternatives"], split="\\|")[[1]]){
-      if(!(alternativa %in% diccionari$paraula)) print(entrada["paraula"],alternativa)
+      if(!(alternativa %in% diccionari$paraula)) print(paste0(entrada["paraula"],": ",alternativa))
     }
   })
 }

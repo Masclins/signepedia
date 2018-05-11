@@ -46,7 +46,7 @@ class TestCercador(unittest.TestCase):
 
     def test_obte_entrada_alternatives(self):
         paraules = ("AJUDANT", "abans", "amèrica")
-        alternatives_v = (["ajudant (a la feina)", "ajudant (auxiliar)"],["abans d'ahir"],["Amèrica (continent)", "Amèrica central", "Amèrica del nord", "Amèrica del sud"])
+        alternatives_v = (["ajudant (a la feina)", "ajudant (auxiliar)"],["abans d'ahir"],["americà","Amèrica (continent)", "Amèrica central", "Amèrica del nord", "Amèrica del sud"])
 
         for paraula, alternatives in zip(paraules, alternatives_v):
             self.assertEqual(cercador.obte_entrada(paraula)["alternatives"], alternatives)
