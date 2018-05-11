@@ -34,14 +34,24 @@
       <% } else { %>
         <p>Col·labora afegint un nou vídeo</p>
         <fieldset>
-          <form action="/pujar_video" method="post" encType="multipart/form-data">
+          <form action="/pujar_video" method="post" encType="multipart/form-data" onsubmit="return desactiva(this);">
             <input name="autor" type="text" class="ghost-input" placeholder="Autor del vídeo" required>
             <input name="email" type="text" class="ghost-input" placeholder="Correu electrònic" required>
             <input name="paraula" type="text" class="ghost-input" placeholder="Paraula a afegir" required>
             <input name="comentari" type="text" class="ghost-input" placeholder="Comentaris de la paraula">
             <input name="video" type="file" required><br>
-            <input type="submit" class="ghost-button" value="Envia'ns el vídeo">
+            <input name="envia" type="submit" class="ghost-button" value="Envia'ns el vídeo">
           </form>
+		  <script type="text/javascript">
+		    function desactiva(form) {
+			  if (form.autor.value === "" || form.email.value === "" || form.paraula.value === "" || form.video.value === "") {
+				return false;
+			  }
+			  form.envia.disabled = true;
+			  form.envia.value = "Enviant...";
+			  return true;
+			}
+		  </script>
         </fieldset>
       <% } %>
     </div>

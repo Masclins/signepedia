@@ -15,11 +15,11 @@ module.exports = {
         if (paraules.length === 1) {
             return r + ".";
         } else if (paraules.length > 2) {
-            for (var i = 1; i < paraules.length-1; ++i) {
-                r += ", " + botoInvisible(paraules[i]);
+            for (var paraula of paraules.slice(1, -1)) {
+                r += ", " + botoInvisible(paraula);
             }
         }
-        r += " o " + botoInvisible(paraules[paraules.length-1]) + ".";
+        r += " o " + botoInvisible(paraules.pop()) + ".";
         return r;
     }
 };
