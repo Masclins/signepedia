@@ -26,6 +26,15 @@ app.get("/pujar_video", function(req, res) {
     });
 });
 
+// Carreguem les pàgines de Condicions d'ús o Política de privadesa
+app.get("/termes", function(req, res) {
+    res.render("termes");
+});
+app.get("/privadesa", function(req, res) {
+    res.render("privadesa");
+});
+
+
 // Rebem una petició POST. Les gestiona restRequests.
 app.post("/", restRequests.cerca);
 
