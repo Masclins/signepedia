@@ -35,8 +35,8 @@
         <p style="padding:10px">Col·labora afegint un nou vídeo</p>
         <fieldset>
           <form action="/pujar_video" method="post" encType="multipart/form-data" onsubmit="return desactiva(this);" style="font-size:15px">
-            <input name="autor" type="text" class="ghost-input" placeholder="Autoria (es mostrarà sota el vídeo)" style="width:300px;font-size:17px;padding:5px" required>
-            <input name="email" type="text" class="ghost-input" placeholder="E-mail de contacte" style="width:300px;font-size:17px;padding:5px" required>
+            <input name="autor" autocomplete="name" type="text" class="ghost-input" placeholder="Autoria (es mostrarà sota el vídeo)" style="width:300px;font-size:17px;padding:5px" required>
+            <input name="email" autocomplete="email" type="text" class="ghost-input" placeholder="E-mail de contacte" style="width:300px;font-size:17px;padding:5px" required>
             <input name="paraula" type="text" class="ghost-input" placeholder="Paraula a afegir" style="width:300px;font-size:17px;padding:5px" required>
             <input name="comentari" type="text" class="ghost-input" placeholder="Comentaris" style="width:300px;font-size:17px;padding:5px">
             <input name="video" type="file" required><br>
