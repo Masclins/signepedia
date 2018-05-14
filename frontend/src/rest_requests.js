@@ -3,8 +3,6 @@ const nodemailer = require("nodemailer");
 const creaHTML = require("./creaHTML.js");
 const fs = require("fs");
 
-var dadesCorreu;
-
 module.exports = {
     
     // Cerca una paraula a partir d'una REST request.
@@ -40,8 +38,8 @@ module.exports = {
             if (err) {
                 res.render("pujar_video", {missatge: "fail"});
             } else {
-                dadesCorreu = JSON.parse(data);
-                var transporter = nodemailer.createTransport({
+                let dadesCorreu = JSON.parse(data);
+                let transporter = nodemailer.createTransport({
                     service: "gmail",
                     auth: {
                         user: dadesCorreu.usuari,
@@ -49,15 +47,19 @@ module.exports = {
                     }
                 });
                 
-                var mailOptions = {
+                let mailOptions = {
                     from: dadesCorreu.usuari,
                     to: "signepedia@gmail.com",
                     subject: "Nou video: " + req.body.paraula,
                     html: "Autor: " + req.body.autor
-                                            + "<br>Correu: " + req.body.email
-                                            + "<br>Parula: " + req.body.paraula
-                                            + "<br>Comentari: " + req.body.comentari,
-                    attachments: [{filename: req.body.paraula + ".mp4", path: "/video_tmp.mp4"}]
+                        + "<br>Correu: " + req.body.email
+                        + "<br>Parula: " + req.body.paraula
+                        + "<br>Comentari: " + req.body.comentari
+                        + "<br><br>Qui ha enviat aquest vídeo confirma que és l'autor del vídeo, l'únic que hi surt i té 18 anys o més."
+                        + "<br> També, ha acceptat les Condicions d'ús i Política de privadesa adjuntes en aquest correu.",
+                    attachments: [{filename: req.body.paraula + ".mp4", path: "/video_tmp.mp4"},
+                        {filename: "Condicions d'ús", path: "/views/termes.ejs"},
+                        {filename: "Política de privadesa", path: "/views/privadesa.ejs"}]
                 };
                 
                 transporter.sendMail(mailOptions, function(error) {
