@@ -10,6 +10,12 @@ app.use(fileUpload());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
+// Carreguem el sitemap de la pàgina
+app.get("/sitemap.xml", function(req, res) {
+    res.header("Content-Type", "application/xml");
+    res.send(require("./sitemap.js").sitemap);
+});
+
 // Carreguem la pàgina principal, amb totes les variables null
 app.get("/", function(req, res) {
     res.render("index", {paraula: null, video: null, alternatives: null, sinonims: null, correccio: null});

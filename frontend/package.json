@@ -7,7 +7,8 @@
     "express-fileupload": "^0.4.0",
     "jasmine-node": "^1.14.5",
     "nodemailer": "^4.6.4",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "sitemap": "^1.13.0"
   },
   "scripts": {
     "test": "jasmine-node spec"
