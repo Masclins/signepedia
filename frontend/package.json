@@ -2,15 +2,18 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "codacy-coverage": "^3.0.0",
     "ejs": "^2.5.9",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
+    "istanbul": "^0.4.5",
     "jasmine-node": "^1.14.5",
     "nodemailer": "^4.6.4",
     "request": "^2.85.0",
     "sitemap": "^1.13.0"
   },
   "scripts": {
-    "test": "jasmine-node spec"
+    "test": "jasmine-node spec",
+    "test-with-coverage": "istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage"
   }
 }

@@ -7,6 +7,8 @@ services:
             - "80:8080"
         depends_on:
             - backend
+        environment:
+            - CODACY_PROJECT_TOKEN
     backend:
         build: backend
         restart: always
@@ -14,6 +16,8 @@ services:
             - "5000:5000"
         volumes:
             - ./backend:/usr/src/app
+        environment:
+            - CODACY_PROJECT_TOKEN
     redis:
         image: redis
         restart: always

@@ -3,14 +3,11 @@ sudo: required
 services:
     - docker
 
-jobs:
-    include:
-        - stage: Backend Unit Tests
-          script:
-              - docker-compose run backend python3 -m unittest discover
-        - stage: Frontend Unit Tests
-          script:
-              - docker-compose run frontend npm test
+script:
+    - cp -a .git/ backend/.git
+    - docker-compose run backend sh -c "coverage run test.py && coverage xml --include='*/src/*'&& python-codacy-coverage -r coverage.xml"
+    - cp -a .git/ frontend/.git
+    - docker-compose run frontend npm run test-with-coverage
 
 notifications:
     email: false
