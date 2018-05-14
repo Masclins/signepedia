@@ -27,9 +27,9 @@ def troba_sinonims(paraula):
     sinonimsRegistrats = []
     for sinonim in sinonims:
         sinonimRegistrat = cercador.tenim_entrada(sinonim)
-        if sinonimRegistrat != None:
+        if sinonimRegistrat is not None:
             sinonimsRegistrats.append(sinonimRegistrat)
 
     if sinonimsRegistrats:
-        return dict(paraula=paraula, sinonims=sinonimsRegistrats)
-    return dict(paraula=paraula)
+        return sinonimsRegistrats
+    return None

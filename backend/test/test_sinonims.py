@@ -22,10 +22,10 @@ class TestSinonims(unittest.TestCase):
     # No en fem més per evitar enlentir les proves.
 
     def test_troba_sinonims(self):
-        self.assertEqual(sinonims.troba_sinonims("escola"), {"paraula": "escola", "sinonims": ["col·legi","estudi","institut"]})
+        self.assertEqual(sinonims.troba_sinonims("escola"), ["col·legi","estudi","institut"])
 
     def test_no_troba_sinonims(self):
-        self.assertEqual(sinonims.troba_sinonims("llamp"), {"paraula": "llamp"})
+        self.assertEqual(sinonims.troba_sinonims("llamp"), None)
 
 if __name__ == '__main__':
     unittest.main()
