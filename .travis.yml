@@ -4,6 +4,7 @@ services:
     - docker
 
 script:
+    - docker-compose run backend python3 test.py
     - cp -a .git/ backend/.git
     - docker-compose run backend sh -c "coverage run test.py && coverage xml --include='*/src/*'&& python-codacy-coverage -r coverage.xml"
     - cp -a .git/ frontend/.git
