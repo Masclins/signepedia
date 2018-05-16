@@ -58,8 +58,8 @@ module.exports = {
                         + "<br><br>Qui ha enviat aquest vídeo confirma que és l'autor del vídeo, l'únic que hi surt i té 18 anys o més."
                         + "<br> També, ha acceptat les Condicions d'ús i Política de privadesa adjuntes en aquest correu.",
                     attachments: [{filename: req.body.paraula + ".mp4", path: "/video_tmp.mp4"},
-                        {filename: "Condicions d'ús", path: "/views/termes.ejs"},
-                        {filename: "Política de privadesa", path: "/views/privadesa.ejs"}]
+                        {filename: "Condicions d'ús", path: process.cwd() + "/views/termes.ejs"},
+                        {filename: "Política de privadesa", path: process.cwd() + "/views/privadesa.ejs"}]
                 };
                 
                 transporter.sendMail(mailOptions, function(error) {
