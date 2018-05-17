@@ -5,7 +5,7 @@ services:
 
 script:
     - cp -a .git/ backend/.git
-    - docker-compose run backend sh -c "coverage run -m unittest && coverage xml --include='*/src/*' && python-codacy-coverage -r coverage.xml"
+    - docker-compose run backend sh -c "coverage run --source=src -m unittest && coverage xml && python-codacy-coverage -r coverage.xml"
     - cp -a .git/ frontend/.git
     - docker-compose run frontend npm run test-with-coverage
 
