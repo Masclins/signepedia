@@ -18,8 +18,12 @@ class TestCercador(unittest.TestCase):
     # Tests neteja_entrada #
     ########################
     def test_neteja_entrada(self):
-        self.assertEqual(cercador.neteja_entrada(dict(a="foo",b="",c="bar",alternatives="")),dict(a="foo",c="bar"))
-        self.assertEqual(cercador.neteja_entrada(dict(paraula="Hola",alternatives="Hola què tal?|Bon dia|Hola i adéu")),dict(paraula="Hola",alternatives=["Hola què tal?","Bon dia","Hola i adéu"]))
+        self.assertEqual(
+                cercador.neteja_entrada(dict(a="foo", b="", c="bar", alternatives="")),
+                dict(a="foo", c="bar"))
+        self.assertEqual(
+                cercador.neteja_entrada(dict(paraula="Hola", alternatives="Hola què tal?|Bon dia|Hola i adéu")),
+                dict(paraula="Hola", alternatives=["Hola què tal?", "Bon dia", "Hola i adéu"]))
 
     ######################
     # Tests obte_entrada #
@@ -46,7 +50,7 @@ class TestCercador(unittest.TestCase):
 
     def test_obte_entrada_alternatives(self):
         paraules = ("AJUDANT", "abans", "amèrica")
-        alternatives_v = (["ajudant (a la feina)", "ajudant (auxiliar)"],["abans d'ahir"],["americà","Amèrica (continent)", "Amèrica central", "Amèrica del nord", "Amèrica del sud"])
+        alternatives_v = (["ajudant (a la feina)", "ajudant (auxiliar)"], ["abans d'ahir"], ["americà", "Amèrica (continent)", "Amèrica central", "Amèrica del nord", "Amèrica del sud"])
 
         for paraula, alternatives in zip(paraules, alternatives_v):
             self.assertEqual(cercador.obte_entrada(paraula)["alternatives"], alternatives)

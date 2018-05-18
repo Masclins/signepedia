@@ -11,7 +11,9 @@ class TestSinonims(unittest.TestCase):
     # No en fem més per evitar enlentir les proves.
 
     def test_get_sinonims(self):
-        self.assertEqual(sinonims.get_sinonims("prova"), ["assaig", "experiment", "experimentació", "intent", "provatura", "temptativa", "tempteig", "test", "demostració", "examen"])
+        self.assertEqual(
+                sinonims.get_sinonims("prova"),
+                ["assaig", "experiment", "experimentació", "intent", "provatura", "temptativa", "tempteig", "test", "demostració", "examen"])
 
 
     ########################
@@ -22,7 +24,9 @@ class TestSinonims(unittest.TestCase):
     # No en fem més per evitar enlentir les proves.
 
     def test_troba_sinonims(self):
-        self.assertEqual(sinonims.troba_sinonims("escola"), ["col·legi","estudi","institut"])
+        self.assertEqual(
+                sinonims.troba_sinonims("escola"),
+                ["col·legi", "estudi", "institut"])
 
     def test_no_troba_sinonims(self):
         self.assertEqual(sinonims.troba_sinonims("llamp"), None)
