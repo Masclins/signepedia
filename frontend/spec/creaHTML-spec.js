@@ -2,13 +2,8 @@ const creaHTML = require("../src/creaHTML.js");
 
 describe("Tests de videoHTML", function () {
     it("Hauria de retornar un <iframe>", function () {
-        expect(creaHTML.videoHTML({"url":"https://www.youtube.com/embed/c0dI", "qualsevol": "valor"}))
+        expect(creaHTML.videoHTML({"videoId":"c0dI", "qualsevol": "valor"}))
         .toBe("<iframe width=\"480\" height=\"360\" allow=\"autoplay\" src=\"https://www.youtube.com/embed/c0dI?&autoplay=1&mute=1&rel=0&showinfo=0\"></iframe>");
-    });
-
-    it("Hauria de retornar un <video>", function () {
-        expect(creaHTML.videoHTML({"url": "URL2", "origen": "patata", "autor": "Mr. Patata"}))
-        .toBe("<video width=\"480\" height=\"360\" controls autoplay muted src=\"URL2\"></video><br><p class=\"autor\">Autor/a del vídeo: Mr. Patata.</p>");
     });
 
     it("Hauria de disculpar-se", function () {

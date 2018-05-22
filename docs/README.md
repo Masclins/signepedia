@@ -22,14 +22,13 @@ Per fer servir la versió en local, cal instal·lar [Docker](https://store.docke
 Cal tenir una terminal executant `docker-compose up --build` des de la carpeta del projecte.
 L'aplicació és accessible des del navegador, a `localhost`.
 
-Per permetre la pujada de vídeos des del frontend cal crear l'arxiu `frontend/dades_correu.json`.
-En aquest arxiu ha d'haver-hi:
-```json
-{
-	"usuari": EMAIL,
-	"contrasenya": CONTRASENYA
-}
-```
+Per permetre la pujada de vídeos des del frontend cal autoritzar l'aplicació a fer servir l'API de YouTube mitjançant oauth2.
+Les instruccions es troben a https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps.
+Un cop autoritzada l'aplicació, només cal enviar la petició d'autorització fent servir les claus.
+
+## Dubtes i comentaris
+
+Pots enviar qualsevol dubte o comentari al correu de la Signepèdia: signepedia@gmail.com
 
 ## Llicència
 

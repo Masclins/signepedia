@@ -36,18 +36,18 @@
         <fieldset>
           <form action="/pujar_video" method="post" encType="multipart/form-data" onsubmit="return desactiva(this);" style="font-size:15px">
             <input name="autor" autocomplete="name" type="text" class="ghost-input" placeholder="Autoria (es mostrarà sota el vídeo)" style="width:300px;font-size:17px;padding:5px" required>
-            <input name="email" autocomplete="email" type="text" class="ghost-input" placeholder="E-mail de contacte" style="width:300px;font-size:17px;padding:5px" required>
+            <input name="email" autocomplete="email" type="text" class="ghost-input" placeholder="E-mail de contacte" style="width:300px;font-size:17px;padding:5px" >
             <input name="paraula" type="text" class="ghost-input" placeholder="Paraula a afegir" style="width:300px;font-size:17px;padding:5px" required>
             <input name="comentari" type="text" class="ghost-input" placeholder="Comentaris" style="width:300px;font-size:17px;padding:5px">
             <input name="video" type="file" required><br>
             <input name="edat" type="checkbox" required> Confirmo que sóc l'autor del vídeo, l'únic que hi surt i tinc 18 anys o més.<br>
-            <input name="llicencia" type="checkbox" required> Accepto que el vídeo adjunt passi a tenir llicència <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a><br>
+            <input name="llicencia" type="checkbox" required> Accepto que el vídeo adjunt es pengi a <a href="https://www.youtube.com/channel/UCczsCk0b6GJRVe00e9XYXXw?view_as=subscriber" target="_blank">YouTube</a> sota llicència <a href="https://creativecommons.org/licenses/by/3.0/legalcode" target="_blank">CC BY</a><br>
             <input name="termes" type="checkbox" required> He llegit i accepto les <a href="/termes" target="_blank">Condicions d'ús.</a> i la <a href="/privadesa" target="_blank">Política de Privadesa</a><br>
             <input name="envia" type="submit" class="ghost-button" value="Envia'ns el vídeo">
           </form>
           <script type="text/javascript">
             function desactiva(form) {
-              if (form.autor.value === "" || form.email.value === "" || form.paraula.value === "" || form.video.value === "" || !form.edat.checked || !form.llicencia.checked || !form.termes.checked) {
+              if (form.autor.value === "" || form.paraula.value === "" || form.video.value === "" || !form.edat.checked || !form.llicencia.checked || !form.termes.checked) {
                 return false;
               }
               form.envia.disabled = true;
@@ -59,8 +59,6 @@
       <% } %>
     </div>
     <div class="footer">
-      Aquesta pàgina està disponible sota <a href="https://creativecommons.org/licenses/by-sa/4.0/">llicència Creative Commons Atribució - Compartir Igual</a>
-      ·
       <a href="/termes" target="_blank">Condicions d'ús.</a>
       ·
       <a href="/privadesa" target="_blank">Política de Privadesa</a>

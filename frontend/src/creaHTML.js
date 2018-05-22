@@ -13,16 +13,14 @@ module.exports = {
     // Altrament, retorna un <video>.
 
     videoHTML(entrada) {
-        if (entrada.url == null) {
+        if (entrada.videoId == null) {
             if (entrada.paraula == null) {
                 return null;
             } else {
                 return "Ho sentim, no tenim \"" + entrada.paraula + "\" registrada.";
             }
-        } else if (entrada.url.includes("www.youtube.com/embed/")) {
-            return "<iframe width=\"" + width + "\" height=\"" + height + "\" allow=\"autoplay\" src=\"" + entrada.url + "?&autoplay=1&mute=1&rel=0&showinfo=0\"></iframe>";
         } else {
-            return "<video width=\"" + width + "\" height=\"" + height + "\" controls autoplay muted src=\"" + entrada.url + "\"></video><br><p class=\"autor\">Autor/a del vídeo: " + entrada.autor + ".</p>";
+            return "<iframe width=\"" + width + "\" height=\"" + height + "\" allow=\"autoplay\" src=\"https://www.youtube.com/embed/" + entrada.videoId + "?&autoplay=1&mute=1&rel=0&showinfo=0\"></iframe>";
         }
     },
 

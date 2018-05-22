@@ -39,14 +39,14 @@ class TestCercador(unittest.TestCase):
     def test_obte_entrada(self):
         paraules = ("adreça", "1.000", "sant just", "ajudar-me", "abans")
         paraulesReg = ("adreça", "1.000", "Sant Just", "ajudar-me", "abans")
-        urls = ("videos/adreça.mp4", "https://www.youtube.com/embed/LqaR9NO8hmk", "https://www.youtube.com/embed/oawVAxU7wVA", "https://www.youtube.com/embed/XjsjQ_NUYJM", "https://www.youtube.com/embed/VMHoIzjYXt0")
+        videoIds = ("M87iZZTgeRw", "LqaR9NO8hmk", "oawVAxU7wVA", "XjsjQ_NUYJM", "VMHoIzjYXt0")
 
-        for paraula, paraulaReg, url in zip(paraules, paraulesReg, urls):
+        for paraula, paraulaReg, videoId in zip(paraules, paraulesReg, videoIds):
             entrada = cercador.obte_entrada(paraula)
             self.assertEqual(entrada["paraula"], paraulaReg)
             self.assertFalse("sinonims" in entrada)
             self.assertFalse("correccio" in entrada)
-            self.assertEqual(cercador.obte_entrada(paraula)["url"], url)
+            self.assertEqual(cercador.obte_entrada(paraula)["videoId"], videoId)
 
     def test_obte_entrada_alternatives(self):
         paraules = ("AJUDANT", "abans", "amèrica")

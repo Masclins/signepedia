@@ -12,7 +12,7 @@ class TestDiccionari(unittest.TestCase):
         with open("diccionari.csv") as diccionariCSV:
             diccionari = csv.DictReader(diccionariCSV)
             for entrada in diccionari:
-                if entrada["url"] == "" or entrada["autor"] == "":
+                if entrada["videoId"] == "" or entrada["autor"] == "":
                     if entrada["alternatives"] == "":
                         return False
                 for alternativa in entrada["alternatives"].split("|"):

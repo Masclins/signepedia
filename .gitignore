@@ -6,7 +6,6 @@ backend/dades_mysql.json
 
 frontend/node_modules
 frontend/package-lock.json
-frontend/dades_correu.json
 
 .Rproj.user
 scripts/.Rhistory
