@@ -52,24 +52,6 @@ paraules_repetides <- function() {
   diccionari[duplicated(diccionari$paraula),"paraula"]
 }
 
-videos_sense_us <- function() {
-  ruta_diccionari = "../backend/diccionari.csv"
-  diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
-  urls <- diccionari[,"url"]
-  videos <- paste0("videos/", list.files("../frontend/public/videos/"))
-  
-  videos[!sapply(videos, function(v){v %in% urls})]
-}
-
-videos_inexistents <- function() {
-  ruta_diccionari = "../backend/diccionari.csv"
-  diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
-  urls <- diccionari[,"url"]
-  videos <- paste0("videos/", list.files("../frontend/public/videos/"))
-  
-  diccionari[!sapply(urls, function(v){v == "" | grepl("youtube", v) | v %in% videos}),1:2]
-}
-
 alternatives_sense_entrada <- function() {
   ruta_diccionari = "../backend/diccionari.csv"
   diccionari <- read.csv(ruta_diccionari, fileEncoding="utf-8", stringsAsFactors = FALSE)
