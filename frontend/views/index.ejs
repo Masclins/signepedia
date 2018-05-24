@@ -6,21 +6,32 @@
     <meta name="description" content="Diccionari Català - LSC (Llengua de Signes Catalana)" />
     <title>
         Signepèdia
-        <% if(paraula !== null) { %>
-          - <%= paraula %>
+        <% if(word !== null) { %>
+          - <%= word %>
         <% } %>
     </title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <p> Ja tenim <%= nvideos %> vídeos! </p>
     <div class="container">
       <fieldset>
-        <form action="/" method="post">
-          <input name="paraula" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
-          <input type="submit" class="ghost-button" value="Tradueix-la a LSC">
+          <form action="/" method="post" onsubmit="return disable(this);">
+          <input name="word" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
+          <input name="search" type="submit" class="ghost-button" value="Tradueix-la a LSC">
         </form>
       </fieldset>
+      <script type="text/javascript">
+        function disable(form) {
+            if (form.word === "") {
+                return false;
+            }
+            form.search.disabled = true;
+            form.search.value = "Cercant...";
+            return true;
+        }
+      </script>
     </div>
     <div>
         <% if(video !== null) { %>
@@ -29,11 +40,11 @@
         <% if(alternatives !== null) { %>
           <p><%- alternatives %></p>
         <% } %>
-        <% if(sinonims !== null) { %>
-          <p><%- sinonims %></p>
+        <% if(synonyms !== null) { %>
+          <p><%- synonyms %></p>
         <% } %>
-        <% if(correccio !== null) { %>
-          <p><%- correccio %></p>
+        <% if(correction !== null) { %>
+          <p><%- correction %></p>
         <% } %>
     </div>
     <div class="container">

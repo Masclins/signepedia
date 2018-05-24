@@ -18,6 +18,10 @@ services:
             - ./backend:/usr/src/app
         environment:
             - CODACY_PROJECT_TOKEN
+            - SIGNEPEDIA_MYSQL_USER
+            - SIGNEPEDIA_MYSQL_PASSWORD
+            - SIGNEPEDIA_MYSQL_HOST
+            - SIGNEPEDIA_MYSQL_DATABASE
     redis:
         image: redis
         restart: always

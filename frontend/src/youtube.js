@@ -1,10 +1,11 @@
 const Youtube = require("youtube-api");
 const opn = require("opn");
+const handler = require("./handler.js");
 
 let oauth; 
 
 module.exports = {
-    
+
     oauth2authentication(req, res) {
         oauth = Youtube.authenticate({
             type: "oauth",
@@ -18,34 +19,28 @@ module.exports = {
             scope: ["https://www.googleapis.com/auth/youtube.upload"]
         }));
 
-        res.render("index", {paraula: null, video: null, alternatives: null, sinonims: null, correccio: null});
+        handler.index(req, res);
     },
 
     handleOauth2Callback(req, res) {
         oauth.getToken(req.query.code, (err, tokens) => {
             oauth.setCredentials(tokens);
         });
-        
-        res.render("index", {paraula: null, video: null, alternatives: null, sinonims: null, correccio: null});
+
+        handler.index(req, res);
     },
 
-    upload(req){
-        let dades = req.body;
-        let descripcio = "Autor: " + dades.autor;
-        if (dades.comentari !== "") {
-            descripcio += ", Comentari: " + dades.comentari;
-        }
-        if (dades.email !== "") {
-            descripcio += ", E-mail: " + dades.email;
-        }
+    upload(req, res){
+        let form = req.body;
+        let description = "Autor: " + form.author;
         Youtube.videos.insert({
             resource: {
                 snippet: {
-                    title: dades.paraula,
-                    description: descripcio
+                    title: form.word,
+                    description
                 },
                 status: {
-                    privacyStatus: "private",
+                    privacyStatus: "unlisted",
                     license: "creativeCommon"
                 }
             },
@@ -53,6 +48,9 @@ module.exports = {
             media: {
                 body: req.files.video.data
             }
+        }, (err, data) => {
+            form.videoId = data.id;
+            handler.uploadVideo(form, res);
         });
-    },
+    }
 };

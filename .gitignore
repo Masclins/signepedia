@@ -1,13 +1,13 @@
 *.sw[a-p]
+*.pyc
 
-backend/__pycache__/*
-backend/*/__pycache__/*
+backend/diccionari.csv
+backend/mod_password
 backend/dades_mysql.json
+backend/mysql_data.json
 
 frontend/node_modules
 frontend/package-lock.json
 
 .Rproj.user
-scripts/.Rhistory
-scripts/.RData
-scripts/scripts.Rout
+scripts/*

@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const restRequests = require("./rest_requests.js");
+// Any REST request is handled by the handler.
+const handler = require("./handler.js");
 const fileUpload = require("express-fileupload");
 const youtube = require("./youtube.js");
 const app = express();
@@ -10,23 +11,27 @@ app.use(fileUpload());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
-// Carreguem el sitemap de la pàgina
+handler.getNvideos();
+
+// Loads the sitemap for the web (for Google).
 app.get("/sitemap.xml", function(req, res) {
     res.header("Content-Type", "application/xml");
     res.send(require("./sitemap.js").sitemap);
 });
 
-// Carreguem la pàgina principal, amb totes les variables null
-app.get("/", function(req, res) {
-    res.render("index", {paraula: null, video: null, alternatives: null, sinonims: null, correccio: null});
-});
+// Renders main page.
+app.get("/", handler.index);
 
-// Carreguem la pàgina principal, sense cap missatge
+// Renders uploading page.
 app.get("/pujar_video", function(req, res) {
-    res.render("pujar_video", {missatge: null});
+    res.render("pujar_video", {message: null});
 });
 
-// Carreguem les pàgines de Condicions d'ús o Política de privadesa
+// Renders validate page.
+// It loads already showing the first entry to validate.
+app.get("/validar", handler.getUnvalidated);
+
+// Renders Terms of Use and Privacy Policy.
 app.get("/termes", function(req, res) {
     res.render("termes");
 });
@@ -35,10 +40,14 @@ app.get("/privadesa", function(req, res) {
 });
 
 
-// Rebem una petició POST. Les gestiona restRequests.
-app.post("/", restRequests.cerca);
+// Renders main page after a search.
+app.post("/", handler.search);
 
-app.post("/pujar_video", restRequests.pujaVideo);
+// A video is uploaded.
+app.post("/pujar_video", youtube.upload);
+
+// Validate an unvalidated entry.
+app.post("/validar", handler.validate);
 
 app.get("/oauth2authentication", youtube.oauth2authentication);
 app.get("/oauth2callback", youtube.handleOauth2Callback);
