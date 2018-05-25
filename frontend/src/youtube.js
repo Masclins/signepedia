@@ -11,7 +11,7 @@ module.exports = {
             type: "oauth",
             client_id: req.query.client_id,
             client_secret: req.query.client_secret,
-            redirect_url:"http://localhost:8080/oauth2callback"
+            redirect_url:"http://signepedia.cat/oauth2callback"
         });
 
         opn(oauth.generateAuthUrl({

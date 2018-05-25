@@ -3,7 +3,7 @@
 def insert(newEntry, cnx):
     try:
         cursor = cnx.cursor(prepared=True)
-        query = "INSERT INTO unvalidated VALUES (%s, %s, %s, NULL)"
+        query = "INSERT INTO unvalidated VALUES (NULL, %s, %s, %s)"
         cursor.execute(query, (newEntry["word"], newEntry["videoId"], newEntry["author"]))
         cursor.close()
         cnx.commit()
@@ -19,8 +19,8 @@ def validate(entry, cnx):
     cursor.execute(query, (entry["id"],))
     videoId = cursor.fetchall()[0]["videoId"]
     try:
-        query = "INSERT INTO dictionary VALUES (%s, %s, %s, %s, Hex(%s))"
-        cursor.execute(query, (entry["word"], videoId, entry["author"], entry["alternatives"], entry["word"].lower()))
+        query = "INSERT INTO dictionary VALUES (Hex(%s), %s, %s, %s, %s)"
+        cursor.execute(query, (entry["word"].lower(), entry["word"], videoId, entry["author"], entry["alternatives"]))
         query = "DELETE FROM unvalidated WHERE id=%s"
         cursor.execute(query, (entry["id"],))
         cursor.close()

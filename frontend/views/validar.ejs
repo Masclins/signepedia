@@ -35,11 +35,11 @@
         <p style="padding:10px">Col·labora validant un vídeo</p>
         <fieldset>
           <form action="/validar" method="post" encType="multipart/form-data" onsubmit="return disable(this);" style="font-size:15px">
-              <input name="author" autocomplete="name" type="text" class="ghost-input" style="width:300px;font-size:17px;padding:5px" value="<%= JSON.parse(data).author %>" required>
-              <input name="word" type="text" class="ghost-input" style="width:300px;font-size:17px;padding:5px" value="<%= JSON.parse(data).word %>" required>
+              <input name="author" autocomplete="name" type="text" class="ghost-input" style="width:300px;font-size:17px;padding:5px" value="<%= data.author %>" required>
+              <input name="word" type="text" class="ghost-input" style="width:300px;font-size:17px;padding:5px" value="<%= data.word %>" required>
               <input name="alternatives" type="text" class="ghost-input" placeholder="Alternatives (separades per |)" style="width:300px;font-size:17px;padding:5px">
-              <input name="id" type="text" readOnly=true value="<%= JSON.parse(data).id %>" required>
-              <input name="videoId" type="text" readOnly=true value="<%= JSON.parse(data).videoId %>" required>
+              <input name="id" type="text" readOnly=true value="<%= data.id %>" required>
+              <input name="videoId" type="text" readOnly=true value="<%= data.videoId %>" required>
               <input name="password" type="text" class="ghost-input" placeholder="Contrasenya" style="width:300px;font-size:17px;padding:5px" required>
             <input name="validate" type="submit" class="ghost-button" value="Valida el vídeo">
           </form>

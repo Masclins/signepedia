@@ -36,7 +36,7 @@ class TestUnvalidated(unittest.TestCase):
     def test_validate(self):
         cnx = db.connect()
         cursor = cnx.cursor(dictionary=True)
-        cursor.execute("INSERT INTO unvalidated VALUES ('validada', '10_10', 'mr. Smith', 1)")
+        cursor.execute("INSERT INTO unvalidated VALUES (1, 'validada', '10_10', 'mr. Smith')")
         validEntry = dict(
                 id=1,
                 word="VALIDADA!",

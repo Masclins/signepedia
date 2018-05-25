@@ -43,8 +43,8 @@ module.exports = {
 
     // Requests a video to be included into the database.
     uploadVideo(data, res) {
-        request("http://backend:5000/new_entry/" + JSON.stringify(data), function(err, response){
-            res.render("pujar_video", {message: response});
+        request("http://backend:5000/new_entry/" + encodeURIComponent(JSON.stringify(data)), function(err, response){
+            res.render("pujar_video", {message: response.body});
         });
     },
 
@@ -52,17 +52,17 @@ module.exports = {
     getUnvalidated(req, res) {
         request("http://backend:5000/get_unvalidated", function(err, response){
             if (JSON.parse(response.body).error === "empty") {
-                res.render("validar", {message: "empty", data: null});
+                res.render("validar", {message: "empty", data: {}});
             } else {
-                res.render("validar", {message: null, data: response.body});
+                res.render("validar", {message: null, data: JSON.parse(response.body)});
             }
         });
     },
 
     // Requests an unvalidated entry to be validated.
     validate(req, res) {
-        request("http://backend:5000/validate/" + JSON.stringify(req.body), function(err, response){
-            res.render("validar", {message: response.body, data: null});
+        request("http://backend:5000/validate/" + encodeURIComponent(JSON.stringify(req.body)), function(err, response){
+            res.render("validar", {message: response.body, data: {}});
         });
     }
 };
