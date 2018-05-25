@@ -1,7 +1,6 @@
 *.sw[a-p]
 *.pyc
 
-backend/diccionari.csv
 backend/mod_password
 backend/dades_mysql.json
 backend/mysql_data.json
