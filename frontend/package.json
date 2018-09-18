@@ -3,6 +3,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "codacy-coverage": "^3.0.0",
+    "crypto": "^1.0.1",
     "ejs": "^2.5.9",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",

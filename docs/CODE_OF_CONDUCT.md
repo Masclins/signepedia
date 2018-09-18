@@ -1,51 +1,47 @@
-# Codi de Conducta dels col·laboradors# 
+# Contributor Code of Conduct
 
-## Els nostres valors
+## Our Values
 
-* Fomentar un entorn obert i acollidor.
-* Participar en el projecte i en la comunitat.
-* Actuar de forma inclusiva per a tothom, lliure d'assetjament: Sense discriminació per edat, cos, capacitat, ètnia, identitat, gènere, orientació sexual, nivell d'experiència, nacionalitat o religió.
+In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-## Les nostres accions
+## Our Standards
 
-Accions que contribueixen a crear un entorn positiu:
+Examples of behavior that contribute to creating a positive environment include:
 
-* Utilitzar un llenguatge acollidor i inclusiu.
-* Ser respectuós amb els diferents punts de vista i experiències.
-* Acceptar amb elegancia la crítica constructiva.
-* Centrar-se en el millor per a la comunitat
-* Mostrar empatia cap a totes les persones de la comunitat.
+* Using welcoming and inclusive language
+* Being respectful of differing viewpoints and experiences
+* Gracefully accepting constructive criticism
+* Focusing on what is best for the community
+* Showing empathy towards other community members
 
-Accions intolebrables i per tant sancionades:
+Examples of unacceptable behavior by participants include:
 
-* Comentaris despectius i atacs personals o ideològics.
-* Comentaris o imatges de caràcter sexual.
-* Assetjament públic o privat.
-* Difondre informació privada d'altres persones, sense permís explícit.
-* Difondre el material audiovisual facilitat per aquest projecte en altres entorns o situacions no autoritzades.
+* The use of sexualized language or imagery and unwelcome sexual attention or advances
+* Trolling, insulting/derogatory comments, and personal or political attacks
+* Public or private harassment
+* Publishing others’ private information, such as a physical or electronic address, without explicit permission
+* Other conduct which could reasonably be considered inappropriate in a professional setting
 
-## Les nostres responsabilitats
 
-Les persones responsables del projecte són les encarregades de:
-* Aclarir els estàndards de comportament acceptable.
-* Dur a terme mesures correctives apropiades davant d'una conducta inadequda.
-* Eliminar, editar o rebutjar comentaris, codis i altres contribucions ofensives.
+## Our Responsibilities
 
-## Àmbit d'afectació
+Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 
-Aquest codi de conducta s'aplica tant dins dels espais del projecte com als espais públics on es representa. Per difondre la Signepèdia cal:
+Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to temporarily or permanently ban any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
 
-* Notificar-ho al correu electrònic: signepedia@gmail.com
+## Scope
 
-La difusió de la Signepèdia pot ser definida o aclarida per les persones responsables del projecte.
+This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address (signepedia@gmail.com), posting via an official social media account, or acting as an appointed representative at an online or offline event. 
 
-## Aplicació del codi
+## Enforcement
 
-Es poden informar dels casos de comportament abusiu o inacceptable contactant l'equip del projecte a masclins@gmail.com. L'equip del projecte revisarà i investigarà totes les queixes, i respondrà de la manera que consideri adequada a les circumstàncies. L'equip del projecte està obligat a mantenir la confidencialitat pel que fa a la comunicació d'un incident. Es poden publicar més detalls sobre les polítiques específiques de compliment per separat.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at masclins@gmail.com. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
 
-## Atribució
+Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership.
 
-Aquest Codi de conducta s'adapta del [Contributor Covenant][homepage], versió 1.4, disponible a [http://contributor-covenant.org/version/1/4][version]
+## Attribution
+
+This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at [http://contributor-covenant.org/version/1/4][version]
 
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/

@@ -1,84 +1,59 @@
-/*
-  Styles from this codepen:
-  https://codepen.io/official_naveen/pen/rgknI
-*/
-
 body {
-  width: auto;
-  margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
-}
-.container {
-  width: auto;
-  margin: 0 auto;
+    width: auto;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
 }
 fieldset {
-  display: block;
-  -webkit-margin-start: 0;
-  -moz-margin-start: 0;
-  -webkit-margin-end: 0;
-  -moz-margin-end: 0;
-  -webkit-padding-before: 0;
-  -webkit-padding-start: 0;
-  -moz-padding-start: 0;
-  -webkit-padding-end: 0;
-  -moz-padding-end: 0;
-  -webkit-padding-after: 0;
-  border: 0;
-  border-image-source: initial;
-  border-image-slice: initial;
-  border-image-width: initial;
-  border-image-outset: initial;
-  border-image-repeat: initial;
-  min-width: -webkit-min-content;
-  padding: 30px;
+    border: 0;
 }
-.ghost-input {
-    padding: 10px 15px;
-    margin: 30px 0;
+header {
+    width: 630px;
 }
-.ghost-input, p , form {
-  display: block;
-  font-weight:300;
-  font-size: 25px;
-  border: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: #4b545f;
-  background: #fff;
-  font-family: Open Sans,Verdana;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+.column {
+	float: left;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 30%;
+    max-width: 150px;
 }
-.ghost-input:focus {
-  border-bottom:1px solid #ddd;
+.main {
+	float: left;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 70%;
+	min-width: 480px;
 }
-.ghost-button {
-  background-color: transparent;
-  border: 2px solid #ddd;
-  padding: 10px 30px;
-  width: 200px;
-  font-family: Open Sans, Verdana;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+.entry-video {
+    width: 480px;
+    padding: 10px;
+    float: left;
 }
-.ghost-button:hover {
-  border:2px solid #515151;
+.left-info {
+    float: left;
 }
-.invisible {
-    background: none;
-    color: blue;
+.right-info {
+    float: right;
+}
+.comment {
+    float: right;
+}
+button:enabled {
+    cursor: pointer;
+}
+.icon-button {
     border: none;
-    text-decoration: underline;
-    padding: 0;
-    font: inherit;
+    font-size: 16px;
+    background-color: white;
+}
+#likes:hover {
+    color: green;
+}
+#dislikes:hover {
+    color: red;
 }
 .footer {
     position: fixed;

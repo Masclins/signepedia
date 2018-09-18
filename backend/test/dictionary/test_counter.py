@@ -1,19 +1,22 @@
 import unittest
-from src.dictionary import counter
-from src import db
+from dictionary import counter
+import db
 
 
 class TestCounter(unittest.TestCase):
 
-    ##################
-    # Tests videoIds #
-    ##################
+    #####################
+    # Tests get_nVideos #
+    #####################
 
     # Checks it counts correctly.
-    def test_urls(self):
-
+    def test_get_nVideos(self):
         cnx = db.connect()
-        self.assertEqual(counter.videoIds(cnx), 8)
+        cursor = cnx.cursor(dictionary=True)
+
+        self.assertEqual(counter.get_nVideos(cursor), 3)
+
+        cursor.close()
         cnx.close()
 
 if __name__ == '__main__':

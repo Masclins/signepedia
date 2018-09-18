@@ -1,68 +1,81 @@
 const request = require("request");
-const createHTML = require("./createHTML.js");
+const crypto = require("crypto");
 
-var nvideos = -1;
-
-function renderIndex (res, entry = {}) {
-    var emptyEntry = Object.keys(entry).length === 0 && entry.constructor === Object;
-    res.render("index", {
-        nvideos,
-        word: emptyEntry ? null : entry.word,
-        video: createHTML.videoHTML(entry) ,
-        alternatives: createHTML.alternatives(entry),
-        synonyms: createHTML.synonyms(entry),
-        correction: createHTML.correction(entry)
-    });
+function passJSON(JSONstr) {
+    return JSON.stringify(JSON.parse(JSONstr));
 }
 
 module.exports = {
     
-    // Requests and saves the number of registered videoIds.
-    getNvideos() {
-        request("http://backend:5000/counter", function(err, response, rn){
-            nvideos = rn;
-        });
-    },
-
     // Renders an empty main page.
     index(req, res) {
-        renderIndex(res);
+        request.get(
+                "http://localhost:5000/main",
+                (error, response, body) => res.render("index", {data: passJSON(body), user: null}));
     },
 
     // Requests the search of a word.
     // Renders the main page for that search.
     search(req, res) {
-        let word = req.body.word;
-        let codedWord  = encodeURIComponent(word);
-        let url = "http://backend:5000/dictionary/" + codedWord;
-        request(url, function (err, response, body) {
-            let entry = JSON.parse(body);
-            renderIndex(res, entry);
-        });
+        request.get(
+                "http://localhost:5000/dictionary/" + encodeURIComponent(req.query.word),
+                (error, response, body) => res.render("index", {data: passJSON(body), user: null}));
+    },
+
+    // Renders the edition menu for an entry
+    renderEdit(req, res) {
+        request.get(
+                "http://localhost:5000/entries/" + req.query.id,
+                (error, response, body) => res.render("edit", {entry: passJSON(body), user: null}));
+    },
+
+    // Applies an edition.
+    // Returns to the search for that entry.
+    applyEdit(req, res) {
+        let edits = JSON.stringify({
+            "word": req.body.word,
+            "comment": req.body.comment,
+            "video": req.body.video});
+        request.patch(
+                "http://localhost:5000/entries/" + req.body.id
+                + "/edits/" + edits,
+                (error) => request.get(
+                    "http://localhost:5000/dictionary/" + encodeURIComponent(req.body.word),
+                    (error, response, body) => res.render("index", {data: passJSON(body), user: null})));
     },
 
     // Requests a video to be included into the database.
     uploadVideo(data, res) {
-        request("http://backend:5000/new_entry/" + encodeURIComponent(JSON.stringify(data)), function(err, response){
-            res.render("pujar_video", {message: response.body});
-        });
+        request.post(
+                "http://backend:5000/dictionary/" + encodeURIComponent(JSON.stringify(data)),
+                (error) => res.render("upload", {message: "done", user: null}));
     },
 
     // Requests the first unvalidated entry.
     getUnvalidated(req, res) {
         request("http://backend:5000/get_unvalidated", function(err, response){
             if (JSON.parse(response.body).error === "empty") {
-                res.render("validar", {message: "empty", data: {}});
+                res.render("validate", {message: "empty", data: {}, user: null});
             } else {
-                res.render("validar", {message: null, data: JSON.parse(response.body)});
+                res.render("validate", {message: null, data: JSON.parse(response.body), user: null});
             }
         });
     },
 
-    // Requests an unvalidated entry to be validated.
-    validate(req, res) {
-        request("http://backend:5000/validate/" + encodeURIComponent(JSON.stringify(req.body)), function(err, response){
-            res.render("validar", {message: response.body, data: {}});
-        });
+    // Requests a user registration.
+    newUser(req, res) {
+        if (req.body.password !== req.body.passwordConf) {
+            res.render("register", {message: "password"});
+        } else {
+            let newUser = {
+                "name": req.body.name,
+                "email": req.body.email,
+                "password": crypto.createHash("sha1").update(req.body.password).digest("hex"),
+                "birthday": req.body.birthday
+            };
+            request.post(
+                    "http://localhost:5000/users/" + encodeURIComponent(JSON.stringify(newUser)),
+                    (error, response) => res.render("register", {message: response.body}));
+        }
     }
 };

@@ -9,6 +9,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <script src="scripts/createHeader.js"></script>
+
     <div class="container">
       <% if(message == "done") { %>
         <p>Hem rebut el teu vídeo.<br>Moltes gràcies per col·laborar!</p>
@@ -51,15 +53,6 @@
         </fieldset>
       <% } %>
     </div>
-    <div class="footer">
-      <a href="/termes" target="_blank">Condicions d'ús.</a>
-      ·
-      <a href="/privadesa" target="_blank">Política de Privadesa</a>
-      ·
-      Utilitzem les APIs de
-      <a href="https://languagetool.org/">LanguageTool</a>
-      i
-      <a href="https://openthesaurus.softcatala.org/">OpenThesaurus-ca</a>
-    </div>
+    <script src="scripts/createFooter.js"></script>
   </body>
 </html>
