@@ -18,15 +18,13 @@ class TestUsers(unittest.TestCase):
         newUser = dict(
                 name="Bruno",
                 email="bruno@mit.com",
-                password="1234",
-                birthday="1990-01-01")
+                password="1234")
         users.new_user(newUser, cursor)
         cursor.execute("SELECT * FROM users WHERE name='Bruno'")
         insertedEntry = cursor.fetchall()[0]
         self.assertEqual(insertedEntry["name"], "Bruno")
         self.assertEqual(insertedEntry["email"], "bruno@mit.com")
         self.assertEqual(insertedEntry["password"], "1234")
-        self.assertEqual(insertedEntry["birthday"], datetime.datetime(1990, 1, 1))
         self.assertEqual(insertedEntry["mod_level"], 0)
 
     # Checks errors for already registered name and email.

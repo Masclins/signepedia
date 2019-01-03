@@ -13,13 +13,12 @@ def new_user(newUser, cursor):
     if cursor.rowcount != 0:
         return "name"
 
-    query = "INSERT INTO users VALUES (NULL, %s, %s, %s, %s, %s, %s, 0)"
+    query = "INSERT INTO users VALUES (NULL, %s, %s, %s, %s, %s, 0)"
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     cursor.execute(query, (
         newUser["name"],
         newUser["email"],
         newUser["password"],
-        newUser["birthday"],
         now,
         now))
     return "done"
