@@ -27,10 +27,22 @@ For any change or contribution, this is what is expected of you:
 5. Create a Pull-request and ask for a review from a collaborator
 6. If changes are requested or travis does not pass, go to step 3.
 
+To run tests or build the project you'll need to have Docker installed.
+You'll also need to create `backend/private/mysql_data.json` file to access the database with the dictionary.
+```
+{
+	"user": "mysql user",
+	"password": "password for mysql user",
+	"host": "IP where the database is hosted",
+	"database": "name of the database"
+}
+```
+
 ## Running Unit tests
 
 ### Backend
 `docker-compose run backend python3 test.py`
 
-### Frontend
-`docker-compose run frontend npm test`
+## Build Signepedia
+`docker-compose build`
+`docker-compose up`

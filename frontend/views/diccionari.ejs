@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Diccionari</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+	 <script type="text/javascript" src="js/jquery.mobilemenu.js"></script>
+	 <script type="text/javascript" src="js/jquery.equalheights.js"></script>
+	 <script src="js/script.js"></script>
+   <script type="text/javascript">
+		  $(window).load(function() {
+        $("#accordion1>li>a").bind('click',function() {
+          var _this = $(this);
+          _this.toggleClass('active', 5);
+          _this.next().toggleClass('closed', 500);
+          $("#accordion1>li>a").not(_this).each(function() {
+            $(this).next().addClass('closed', 500);
+            $(this).removeClass('active', 5);
+          });
+        });
+			 });
+	 </script>
+</head>
+<body>
+<div class="main">
+<!--==============================header=================================-->
+  <header>
+    <h1><a class="logo" href="/">Signepèdia</a></h1>
+  </header>
+  <div class="white_bg">
+    <nav>
+		<a name="adalt"></a>
+      <ul class="sf-menu">
+        <li class="first"><a href="/">Inici</a></li>
+        <li><a href="/comunitat">Comunitat</a></li>
+        <li class="current"><a href="/diccionari">Tot el vocabulari</a></li>
+
+	  	<form id="search" action="/cerca" method="GET" accept-charset="utf-8">
+      		<input type="text" name="s" />
+			<a onclick="document.getElementById('search').submit()">Cerca</a>
+			</form>
+      </ul>
+     <div class="clear"></div>
+    </nav>
+    <!--==============================content================================-->
+    <section id="content">
+      <div class="container_12">
+        <div class="pad_box">
+          <div class="wrapper">
+            <article class="grid_8">
+              <h3 class="ind2">Busca la Paraula al nostre <span>Diccionari</span></h3>
+              <p class="p3">Aquí trobarás totes les paraules per ordre alfabètic:</p>
+              <div class="wrapper list_boxes">
+                <ul class="list1 f_left">
+                  <li><a href="#a">A</a></li>
+                  <li><a href="#b">B</a></li>
+                  <li><a href="#c">C</a></li>
+                  <li><a href="#">D</a></li>
+				  <li><a href="#">E</a></li>
+                </ul>
+                <ul class="list1 f_left">
+                  <li><a href="#">F</a></li>
+                  <li><a href="#">G</a></li>
+                  <li><a href="#">H</a></li>
+				  <li><a href="#">I</a></li>
+				  <li><a href="#">J</a></li>
+                </ul>
+				<ul class="list1 f_left">
+                  <li><a href="#">K</a></li>
+                  <li><a href="#">L</a></li>
+				  <li><a href="#">M</a></li>
+				  <li><a href="#">N</a></li>
+                </ul>
+				<ul class="list1 f_left">
+                  
+                  <li><a href="#">O</a></li>
+                  <li><a href="#">P</a></li>
+				  <li><a href="#">Q</a></li>
+				  <li><a href="#">R</a></li>
+                </ul>
+				<ul class="list1 f_left">
+                  
+                  <li><a href="#">S</a></li>
+				  <li><a href="#">T</a></li>
+                  <li><a href="#">U</a></li>
+				  <li><a href="#">V</a></li>
+                </ul>
+				<ul class="list1 f_left">
+                  
+                  <li><a href="#">W</a></li>
+				  <li><a href="#">X</a></li>
+                  <li><a href="#">Y</a></li>
+				  <li><a href="#">Z</a></li>
+                </ul>
+              </div>
+				<a name="a"><h3 class="ind2">Paraules que comencen amb <span>A:</span></h3></a>
+              <ul class="ext_list staff_box activities">
+                <li>
+                  <figure><img src="images/activity1.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+                <li>
+                  <figure><img src="images/activity2.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+                <li class="bd_none m_bottom_zero">
+                  <figure><img src="images/activity3.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+              </ul>
+			<div style="margin:0 0 20px 0"><a href="#adalt" class="link5">Tornar al Menú</a></div>
+			  <a name="b"><h3 class="ind2">Paraules que comencen amb <span>B:</span></h3></a>
+              <ul class="ext_list staff_box activities">
+                <li>
+                  <figure><img src="images/activity1.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+                <li>
+                  <figure><img src="images/activity2.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+                <li class="bd_none m_bottom_zero">
+                  <figure><img src="images/activity3.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+              </ul>
+			<div style="margin:0 0 20px 0"><a href="#adalt" class="link5">Tornar al Menú</a></div>
+				<a name="c"><h3 class="ind2">Paraules que comencen amb <span>C:</span></h3></a>
+              <ul class="ext_list staff_box activities">
+                <li>
+                  <figure><img src="images/activity1.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+                <li>
+                  <figure><img src="images/activity2.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+                <li class="bd_none m_bottom_zero">
+                  <figure><img src="images/activity3.jpg" alt=""></figure>
+                  <div>
+                    <h4 class="var1">Nom de la Paraula</h4>
+                    Autor o Descripció<br>
+                    <a href="index-5.html" class="link6">[Veure]</a>
+                  </div>
+                </li>
+              </ul>
+			<div style="margin:0 0 20px 0"><a href="#adalt" class="link5">Tornar al Menú</a></div>
+            </article>
+		  	<article class="grid_4 last-col">
+			  <div class="box m_bot1">
+				<h2 class="ind">Paraules de temporada</h2>
+				<ul class="ext_list feat_list">
+				  <li>
+					<figure><a href="/cerca?s=Bon+Nadal" class="img_wrap1"><img src="https://img.youtube.com/vi/xs1AXjJnnnc/2.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Bon+Nadal" class="link2">Bon Nadal</a></time><br>
+					 Frosinor85
+					</div>
+				  </li>
+				  <li>
+					<figure><a href="/cerca?s=Nadales" class="img_wrap1"><img src="https://img.youtube.com/vi/_qRDg1wBy68/2.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Nadales" class="link2">Nadales</a></time><br>
+					  Tània Tebé
+					</div>
+				  </li>
+				  <li>
+					<figure><a href="/cerca?s=Pessebre" class="img_wrap1"><img src="https://img.youtube.com/vi/5pGeep74vn0/3.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Pessebre" class="link2">Pessebre</a></time><br>
+					 Frosinor85
+					</div>
+				  </li>
+				  <li class="last">
+					<figure><a href="/cerca?s=Caga+Tió" class="img_wrap1"><img src="https://img.youtube.com/vi/ycjh9GKRnFk/2.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Caga+Tió" class="link2">Caga Tió</a></time><br>
+					 Frosinor85
+					</div>
+				  </li>
+				</ul>
+				<!--<a href="#" class="link3">See all</a>-->
+			  </div>
+		  	</article>
+          </div>
+        </div>
+      </div>
+    </section>
+<!--==============================footer=================================-->
+    <footer>
+      <div class="container_12">
+        <div class="pad_box">
+          <div class="wrapper">
+            <article class="grid_12">
+              <div class="footer">
+                <ul class="footer_menu">
+                  <li><a href="/">Inici</a></li>
+                  <li><a href="/comunitat">Comunitat</a></li>
+                  <li class="current"><a href="/diccionari">Tot el vocabulari</a></li>
+
+                </ul>
+                <div class="privacy">
+				  Signepèdia  &copy; 2018 &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/privadesa">Política de Privadesa </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/condicions">Condicions d'ús.</a>                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

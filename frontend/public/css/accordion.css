@@ -1,0 +1,43 @@
+
+.accordion .accordion_content.closed{
+  opacity: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
+}
+.accordion .accordion_content{
+  padding: 3px 20px 0 0;
+  opacity: 1;
+  height: 100%;
+  width: auto;
+}
+.accordion>li{
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom:18px;
+}
+.accordion>li>a i{
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: url('../images/toggle_icon.png') 0 -37px no-repeat;
+}
+
+.accordion>li>a{
+  display: block;
+  position: relative;
+  padding: 5px 20px 9px 40px;
+  font-size: 12px;
+  color: #353434;
+  font-weight: bold;
+}
+.accordion>li>a:hover, .accordion>li>a.active{
+  color: #70bf04;
+}
+.accordion>li>a.active i{
+  background-position: 0 0;
+}

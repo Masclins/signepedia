@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%=JSON.parse(data).word%></title>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+	 <script type="text/javascript" src="js/jquery.mobilemenu.js"></script>
+	 <script type="text/javascript" src="js/jquery.flexslider.js"></script>
+	 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	 <script src="js/script.js"></script>
+	 <script type="text/javascript">
+		  $(window).load(function() {
+				$('.flexslider').flexslider({
+				  animation: "slide"
+				});
+        $("#accordion1>li>a").bind('click',function() {
+          var _this = $(this);
+          _this.toggleClass('active', 5);
+          _this.next().toggleClass('closed', 500);
+          $("#accordion1>li>a").not(_this).each(function() {
+            $(this).next().addClass('closed', 500);
+            $(this).removeClass('active', 5);
+          });
+        });
+			 });
+	 </script>
+</head>
+<body>
+<div class="main">
+<!--==============================header=================================-->
+  <header>
+    <h1><a class="logo" href="/">Signepèdia</a></h1>
+  </header>
+  <div class="white_bg">
+    <nav>
+      <ul class="sf-menu">
+        <li class="first"><a href="/">Inici</a></li>
+        <li><a href="/comunitat">Comunitat</a></li>
+        <!--<li><a href="/diccionari">Tot el vocabulari</a></li>-->
+      </ul>
+	  	<form id="search" action="/cerca" method="GET" accept-charset="utf-8">
+      		<input type="text" name="s" />
+			<a onclick="document.getElementById('search').submit()">Cerca</a>
+			</form>
+     <div class="clear"></div>
+    </nav>
+    <!--==============================content================================-->
+    <section id="content">
+      <div class="container_12">
+        <div class="pad_box">
+          <div class="wrapper">
+	    <% if(JSON.parse(data).hasOwnProperty("entries")) { %>
+            <article class="grid_8" id="video_article">
+             <h3 class="ind2"><%=JSON.parse(data).word%></h3>
+              <ul class="ext_list staff_box activities">
+                <li style="position:relative;padding-top:56.25%;">
+	    	<% if(JSON.parse(data).entries[0].video !== "") { %>
+                  
+                    <%-"<iframe style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\" allow=\"autoplay\" src=\"https://www.youtube.com/embed/" + JSON.parse(data).entries[0].video + "?&autoplay=1&mute=1&rel=0&showinfo=0\"></iframe>"; %>
+                  
+		  <% } else { %>
+		  <p>Ho sentim, no tenim cap vídeo per aquesta cerca.</p>
+		<% } %>
+                </li>
+              </ul>
+            </article>
+	    <% if(JSON.parse(data).entries[0].alternatives !== "") { %> 
+            <article class="grid_4 last-col">
+				<div class="box1 ind">
+                <h3 class="ind">Cerques relacionades:</h3>
+                <p>
+                  <ul class="list1 f_left">
+			  <% var alternatives = JSON.parse(data).entries[0].alternatives.split("|"); %>
+			  <% for (var i = 0; i < alternatives.length; i++) { %>
+			  <li><strong><a href= <%- encodeURI("/cerca?s=" + alternatives[i]) %> class="link6"><%- alternatives[i] %></a></strong></li>
+			<% } %>
+					</ul>
+                </p>
+				</div>
+		   </article>
+		   <% } %>
+		   <% if(JSON.parse(data).entries[0].comment != null) { %>
+			<article class="grid_4 last-col">
+			  	<div class="box1">
+				<h3 class="var1 ind">Comentari sobre la paraula</h3>
+					<div style="width: 275px;height: 200px;">
+						<%= JSON.parse(data).entries[0].comment %>
+					</div>
+				</div>
+            </article>
+	    	<% } %>
+		<% } else { %>
+        <article class="grid_8">
+             <h3 class="ind2"><%=JSON.parse(data).word%></h3>
+		<p>Ho sentim, no tenim cap vídeo per aquesta cerca.</p>
+          
+			<% if (JSON.parse(data).hasOwnProperty("correction")) { %>
+			<p>Potser volies dir "
+			  <strong><a href= <%- encodeURI("/cerca?s=" + JSON.parse(data).correction) %> class="link6"><%- JSON.parse(data).correction %></a></strong>"?</p>
+			  <% } %>
+              </article>
+	      <% if (JSON.parse(data).hasOwnProperty("synonyms")) { %>
+            <article class="grid_4 last-col">
+				<div class="box1 ind">
+                <h3 class="ind">Possibles sinònims:</h3>
+                <p>
+                  <ul class="list1 f_left">
+			  <% var synonyms = JSON.parse(data).synonyms; %>
+			  <% for (var i = 0; i < synonyms.length; i++) { %>
+			  <li><strong><a href= <%- encodeURI("/cerca?s=" + synonyms[i]) %> class="link6"><%- synonyms[i] %></a></strong></li>
+			<% } %>
+					</ul>
+                </p>
+				</div>
+		   </article>
+		   <% } %>
+			  <% } %>
+
+          </div>
+        </div>
+      </div>
+    </section>
+<!--==============================footer=================================-->
+    <footer>
+      <div class="container_12">
+        <div class="pad_box">
+          <div class="wrapper">
+            <article class="grid_12">
+              <div class="footer">
+                <ul class="footer_menu">
+                  <li><a href="/">Inici</a></li>
+                  <li><a href="/comunitat">Comunitat</a></li>
+                  <!--<li><a href="/diccionari">Tot el vocabulari</a></li>-->
+
+                </ul>
+                <div class="privacy">
+				  Signepèdia  &copy; 2018 &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/privadesa">Política de Privadesa </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/condicions">Condicions d'ús.</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

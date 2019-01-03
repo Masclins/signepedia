@@ -18,7 +18,7 @@ But if you are here, you are probably looking for a deeper form of collaboration
 
 - Check the [Issues](https://github.com/Masclins/signepedia/issues?q=is%3Aissue+is%3Aopen) and give your oppinion regarding enything being discussed.
 - Create new Issues if you see a problem or a missing feature for which there's no Issue already.
-- And if you want to develop, you'll be **really** welcomed. Best way to start is to read the [documentation for contributing](https://github.com/Masclins/signepedia/blob/nou-csv/docs/CONTRIBUTING.md).
+- And if you want to develop, you'll be **really** welcomed. Best way to start is to read the [documentation for contributing](https://github.com/Masclins/signepedia/blob/develop/docs/CONTRIBUTING.md).
 
 ## Language
 The official language for this project is english. Even though, when the project begun we used catalan for everything.

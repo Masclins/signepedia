@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Comunitat</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+	 <script type="text/javascript" src="js/jquery.mobilemenu.js"></script>
+	 <script type="text/javascript" src="js/jquery.equalheights.js"></script>
+	 <script src="js/script.js"></script>
+</head>
+<body>
+<div class="main">
+<!--==============================header=================================-->
+  <header>
+    <h1><a class="logo" href="/">Signepèdia</a></h1>
+  </header>
+  <div class="white_bg">
+    <nav>
+      <ul class="sf-menu">
+        <li class="first"><a href="/">Inici</a></li>
+        <li class="current"><a href="/comunitat">Comunitat</a></li>
+        <!--<li><a href="/diccionari">Tot el vocabulari</a></li>-->
+      </ul>
+
+	  	<form id="search" action="/cerca" method="GET" accept-charset="utf-8">
+      		<input type="text" name="s" />
+			<a onclick="document.getElementById('search').submit()">Cerca</a>
+			</form>
+     <div class="clear"></div>
+    </nav>
+    <!--==============================content================================-->
+    <section id="content">
+      <div class="container_12">
+        <div class="pad_box">
+          <div class="wrapper m_bot1">
+            <article class="grid_8">
+                <h3 class="var1 ind">Sobre la <span>Signepèdia</span></h3> 
+                <p>La Signepèdia neix de la il·lusió de facilitar l’ús i l’aprenentatge col·laboratiu de la llengua de signes catalana (LSC).
+				Partim de la convicció de que aquesta llengua és una riquesa cultural per a tota la comunitat catalana.
+				Volem que la Signepèdia s’adapti a les característiques de la LSC per això és una eina participativa, on la comunitat construeix i transforma el coneixement. <br></p>
+				<p>La Signepèdia neix com una plataforma de codi lliure, totalment cooperativa i sense ànim de lucre.
+				Estem treballant per a fer que aquesta col·laboració es pugui fer íntegrament des d’aquesta pàgina.
+				Mentre avança el desenvolupament, pots fer-ho a través del <a href="http://github.com/Masclins/Signepedia" target="_blank"> repositori </a> o contactant-nos a través del correu electrònic.</p>
+			  <dl class="adress">
+                <dd>Correu electrònic: <a href="#" class="demo2">signepedia@gmail.com</a></dd>
+              </dl>
+            </article>
+		<!--	<article class="grid_4">
+              <div class="box1">
+                <h3 class="var1 ind">Contacta'ns!</h3>
+                <form id="contact-form" action="/message" method="post">
+                  <div class="success">Formulari de contacte enviat correctament!<br>
+                      <strong>Ens posarem en contacte amb tu aviat.</strong>
+                  </div>
+                  <fieldset>
+                    <label class="name">
+                      <em class="title">Nom</em>
+                      <input type="text" name="name">
+                        <span class="error">*Aquest nom no és vàlid.</span> <span class="empty">*Cal emplenar aquest camp.</span>
+                    </label>
+                    <label class="email">
+                      <em class="title">E-mail</em>
+                      <input type="text" name="email">
+                        <span class="error">*Aquest correu electrònic no és vàlid.</span> <span class="empty">*Cal emplenar aquest camp.</span>
+                    </label>
+                    <label class="message">
+                      <em class="title">Missatge</em>
+                      <textarea name="message"></textarea>
+                        <span class="error">*El missatge és massa curt.</span> <span class="empty">*Cal emplenar aquest camp.</span>
+                    </label>
+                    <div class="buttons2">
+                        <input type="submit" data-type="submit" class="link5">Enviar</a>
+                    </div>
+                  </fieldset>
+              </form>
+              </div>
+		</article>-->
+          </div>
+          <div class="wrapper">
+          </div>
+        </div>
+      </div>
+    </section>
+	
+<!--==============================footer=================================-->
+    <footer>
+      <div class="container_12">
+        <div class="pad_box">
+          <div class="wrapper">
+            <article class="grid_12">
+              <div class="footer">
+                <ul class="footer_menu">
+                  <li><a href="/">Inici</a></li>
+                  <li class="current"><a href="/comunitat">Comunitat</a></li>
+                  <!--<li><a href="/diccionari">Tot el vocabulari</a></li>-->
+
+                </ul>
+                <div class="privacy">
+				  Signepèdia  &copy; 2018 &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/privadesa">Política de Privadesa </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/condicions">Condicions d'ús.</a>                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

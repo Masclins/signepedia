@@ -5,8 +5,9 @@ import db
 # Requests the synonyms of a "word" to OpenThesaurus.
 # Removes repeated or equal to "word".
 def request_synonyms(word):
+ 
     try:
-        req = requests.get("https://openthesaurus.softcatala.org/synonyme/search?q=" + word + "&format=application/json")
+        req = requests.get("https://openthesaurus.softcatala.org/synonyme/search?q=" + word + "&format=application/json", timeout = 3)
         if req.status_code != 200:
             db.errorLog("request_synonyms", word, req.status_code)
             return []
