@@ -3,58 +3,31 @@
 <head>
     <title>Registra't</title>
     <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
     <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.js"></script>
     <script type="text/javascript" src="js/superfish.js"></script>
 	 <script type="text/javascript" src="js/jquery.mobilemenu.js"></script>
 	 <script src="js/script.js"></script>
-	<!--[if lt IE 8]>
-   <div style=' clear: both; text-align:center; position: relative;'>
-     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-       <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-    </a>
-  </div>
-<![endif]-->
-    <!--[if lt IE 9]>
-   	<script type="text/javascript" src="js/html5.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
-    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
-    <![endif]-->
 </head>
 <body>
 <div class="main">
 <!--==============================header=================================-->
   <header>
     <h1><a class="logo" href="/">Signepèdia</a></h1>
-    <!--<div class="header_links">
-      <ul class="links">
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Entries RSS</a></li>
-        <li><a href="#">Comments RSS</a></li>
-      </ul>
-      <div class="twitter">
-        Follow us on <a href="#">Twitter</a>
-      </div>
-    </div>-->
   </header>
   <div class="white_bg">
     <nav>
       <ul class="sf-menu">
         <li class="first"><a href="/">Inici</a></li>
         <li><a href="/comunitat">Comunitat</a></li>
-        <li><a href="/diccionari">Tot el vocabulari</a></li>
-
+	<!-- <li><a href="/diccionari">Tot el vocabulari</a></li>-->
+      </ul>
 	  	<form id="search" action="/cerca" method="GET" accept-charset="utf-8">
       		<input type="text" name="s" />
 			<a onclick="document.getElementById('search').submit()">Cerca</a>
 			</form>
-      </ul>
      <div class="clear"></div>
     </nav>
     <!--==============================content================================-->
@@ -69,106 +42,34 @@
                   <div class="success">Contact form submitted!<br>
                       <strong>We will be in touch soon.</strong>
                   </div>
-                  <fieldset>
-                    <label class="name">
+
+                  <form action="/registre" method="post">
+                    <label class="uname">
                       <em class="title">Usuari</em>
-                      <input type="text">
-                        <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
+                      <input type="text" name="uname" required>
+                    </label>
+                    <label class="password">
+                      <em class="title">Contrassenya</em>
+                      <input type="password" name="psw" required>
+                    </label>
+                    <label class="password-repeat">
+                      <em class="title">Confirma la contrassenya</em>
+                      <input type="password" name="psw-repeat" required>
                     </label>
                     <label class="email">
-                      <em class="title">Contrassenya</em>
-                      <input type="text">
-                        <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
+                      <em class="title">Correu electrònic</em>
+                      <input type="email" name="email" required>
                     </label>
-                    <label class="phone">
-                      <em class="title">Quina es la teva relació amb la llengua dels signes?</em>
-                      <input type="text">
-                        <span class="error">*This is not a valid phone number.</span> <span class="empty">*This field is required.</span>
-                    </label>
-                    <label class="message">
-                      <em class="title">Missatge</em>
-                      <textarea></textarea>
-                        <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span>
-                    </label>
-                    <div class="buttons2">
-                        <a href="#" data-type="reset" class="link5">Clear</a>
-                        <a href="#" data-type="submit" class="link5">Send</a>
-                    </div>
-                  </fieldset>
+		    <label>
+			    <input type="checkbox" name="privacy" required> Accepto la <a href="/privadesa">Política de Privadesa</a>.
+			    <input type="checkbox" name="terms" required> Accepto les <a href="/condicions">Condicions d'ús</a>.
+		    </label>
+
+		    <button type="submit"> Registra't </button>
+                  </form>
               </form>
               </div>
             </article>
-			  
-            <!--<article class="grid_8">
-              <h3 class="ind2">about <span>our academics</span></h3>
-              <div class="ext_box about2">
-                <figure><img src="images/about.jpg" alt=""></figure>
-                <div>
-                  <p>Deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet conse ctetur adipisicing elit sed do. Fusce euismod consequat ante. Pellentesque sed dolor. Aliquam congue fermentum nisl. Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet.</p>
-                  <div class="wrapper list_boxes1">
-                    <ul class="list1 f_left">
-                      <li><a href="#">Departments</a></li>
-                      <li><a href="#">Curriculum</a></li>
-                      <li><a href="#">Guidance &amp; Counseling</a></li>
-                    </ul>
-                    <ul class="list1 f_left">
-                      <li><a href="#">Library</a></li>
-                      <li><a href="#">Technology</a></li>
-                      <li><a href="#">Summer Camps</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <h3 class="ind2">academics <span>supports</span></h3>
-              <ul class="support">
-                <li>
-                  <h4 class="var1"><span>1.</span> Universal Supports</h4>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy 
-hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient 
-montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, 
-luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. <a href="#" class="link6">[more]</a>
-                </li>
-                <li>
-                  <h4 class="var1"><span>2.</span> Small-Group Academic Interventions</h4>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy 
-hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient 
-montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, 
-luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. <a href="#" class="link6">[more]</a>
-                </li>
-                <li class="last">
-                  <h4 class="var1"><span>3.</span> Intensive Individual Academic Interventions</h4>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy 
-hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient 
-montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, 
-luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. <a href="#" class="link6">[more]</a>
-                </li>
-              </ul>
-            </article>
-            <article class="grid_4">
-              <div class="box1 ind">
-                <h3 class="ind2">academic programs</h3>
-                <ul class="academ_progs">
-                  <li>
-                    <p>
-                      <a href="#" class="img_wrap"><img src="images/academics_1.jpg" alt=""></a>
-                    </p>
-                    <p class="p2">
-                      <strong class="gray1">Major Programs</strong>
-                    </p>
-                    Lorem ipsum dolor sit amet, consectetuer adi- pis elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. <a href="#" class="link6">[more]</a>
-                  </li>
-                  <li class="last">
-                    <p>
-                      <a href="#" class="img_wrap"><img src="images/academics_2.jpg" alt=""></a>
-                    </p>
-                    <p class="p2">
-                      <strong class="gray1">Minors and Certificate Programs</strong>
-                    </p>
-                    Lorem ipsum dolor sit amet, consectetuer adi- pis elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. <a href="#" class="link6">[more]</a>
-                  </li>
-                </ul>
-              </div>
-            </article>-->
           </div>
         </div>
       </div>
@@ -183,7 +84,7 @@ luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. 
                 <ul class="footer_menu">
                   <li><a href="/">Inici</a></li>
                   <li><a href="/comunitat">Comunitat</a></li>
-                  <li><a href="/diccionari">Tot el vocabulari</a></li>
+		  <!--<li><a href="/diccionari">Tot el vocabulari</a></li>-->
 
                 </ul>
                 <div class="privacy">

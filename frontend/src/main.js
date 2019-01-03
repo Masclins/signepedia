@@ -26,9 +26,10 @@ app.get("/comunitat", function(req, res) {
 /*app.get("/diccionari", function(req, res) {
     res.render("diccionari");
 });
+*/
 app.get("/registre", function(req, res) {
     res.render("registre");
-});*/
+});
 app.get("/condicions", function(req, res) {
     res.render("condicions");
 });
