@@ -1,68 +1,146 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="google-site-verification" content="4ELquWI2iam-hbLqw6IA8LvtfBlm5XXvhpb50BxEqrg" />
-    <meta name="description" content="Diccionari Català - LSC (Llengua de Signes Catalana)" />
-    <title>
-        Signepèdia
-        <% if(word !== null) { %>
-          - <%= word %>
-        <% } %>
-    </title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <p> Ja tenim <%= nvideos %> vídeos! </p>
-    <div class="container">
-      <fieldset>
-          <form action="/" method="post" onsubmit="return disable(this);">
-          <input name="word" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
-          <input name="search" type="submit" class="ghost-button" value="Tradueix-la a LSC">
-        </form>
-      </fieldset>
-      <script type="text/javascript">
-        function disable(form) {
-            if (form.word === "") {
-                return false;
-            }
-            form.search.disabled = true;
-            form.search.value = "Cercant...";
-            return true;
-        }
-      </script>
-    </div>
-    <div>
-        <% if(video !== null) { %>
-          <p><%- video %></p>
-        <% } %>
-        <% if(alternatives !== null) { %>
-          <p><%- alternatives %></p>
-        <% } %>
-        <% if(synonyms !== null) { %>
-          <p><%- synonyms %></p>
-        <% } %>
-        <% if(correction !== null) { %>
-          <p><%- correction %></p>
-        <% } %>
-    </div>
-    <div class="container">
-      <fieldset>
-        <form action="/pujar_video" method="get">
-          <input type="submit" class = "ghost-button" value="Afegeix un signe">
-        </form>
-      </fieldset>
-    <div class="container">
-    <div class="footer">
-      <a href="/termes" target="_blank">Condicions d'ús.</a>
-      ·
-      <a href="/privadesa" target="_blank">Política de Privadesa</a>
-      ·
-      Utilitzem les APIs de
-      <a href="https://languagetool.org/">LanguageTool</a>
-      i
-      <a href="https://openthesaurus.softcatala.org/">OpenThesaurus-ca</a>
-    </div>
-  </body>
+<html lang="ca">
+<head>
+	<title>Inici</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="images/favicon.png" type="image/png">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.mobilemenu.js"></script>
+	<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+    <script src="js/script.js"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.flexslider').flexslider({
+				animation: "slide"
+			});
+			$("#accordion1>li>a").bind('click',function() {
+				var _this = $(this);
+				_this.toggleClass('active', 5);
+				_this.next().toggleClass('closed', 500);
+				$("#accordion1>li>a").not(_this).each(function() {
+					$(this).next().addClass('closed', 500);
+					$(this).removeClass('active', 5);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+<div class="main">
+<!--==============================header=================================-->
+  <header>
+	<h1><a class="logo" href="/">Signepèdia</a></h1>
+  </header>
+  <div class="white_bg">
+	<nav>
+	  <ul class="sf-menu">
+		<li class="current first"><a href="/">Inici</a></li>
+		<li><a href="/comunitat">Comunitat</a></li>
+		<!--<li><a href="/diccionari">Tot el vocabulari</a></li>-->
+	  </ul>
+	  	<form id="search" action="/cerca" method="GET" accept-charset="utf-8">
+	  		<input type="text" name="s" />
+			<a onclick="document.getElementById('search').submit()">Cerca</a>
+			</form>
+	 <div class="clear"></div>
+	</nav>
+	<!--==============================content================================-->
+	<section id="content">
+	  <div class="container_12">
+		<div class="pad_box">
+		  <div class="wrapper">
+			<article class="grid_8">
+			  <div class="flexslider m_bot1">
+				<ul class="slides">
+				  <li>
+					<img src="images/noticia1.png" alt="">
+					<div class="banner">
+					  <div class="inner">
+						<time datetime="2018-12-08">8 de desembre, 2018</time>
+						<div class="title">Aquestes vacances, estrenem un nou disseny!</div>
+						<div class="text">La Signepèdia reneix amb una cara més bonica </div>
+					  </div>
+					</div>
+				  </li>
+				  <li>
+					<a href="http://llengua.gencat.cat/ca/llengua_signes_catalana/"><img src="images/noticia2.png" alt=""></a>
+					<div class="banner">
+					  <div class="inner">
+						<time datetime="2018-12-05">5 de desembre, 2018</time>
+						<div class="title">Llengua de signes catalana</div>
+						<div class="text">És la llengua natural de modalitat gestual i visual de les persones signants de Catalunya <a href="http://llengua.gencat.cat/ca/llengua_signes_catalana/" class="link1">[Veure]</a></div>
+					  </div>
+					</div>
+				  </li>
+				</ul>
+			  </div>
+			</article>
+			<article class="grid_4 last-col">
+			  <div class="box m_bot1">
+				<h2 class="ind">Paraules de temporada</h2>
+				<ul class="ext_list feat_list">
+				  <li>
+					<figure><a href="/cerca?s=Bon+Nadal" class="img_wrap1"><img src="https://img.youtube.com/vi/xs1AXjJnnnc/2.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Bon+Nadal" class="link2">Bon Nadal</a></time><br>
+					 Frosinor85
+					</div>
+				  </li>
+				  <li>
+					<figure><a href="/cerca?s=Nadales" class="img_wrap1"><img src="https://img.youtube.com/vi/_qRDg1wBy68/2.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Nadales" class="link2">Nadales</a></time><br>
+					  Tània Tebé
+					</div>
+				  </li>
+				  <li>
+					<figure><a href="/cerca?s=Pessebre" class="img_wrap1"><img src="https://img.youtube.com/vi/5pGeep74vn0/3.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Pessebre" class="link2">Pessebre</a></time><br>
+					 Frosinor85
+					</div>
+				  </li>
+				  <li class="last">
+					<figure><a href="/cerca?s=Caga+Tió" class="img_wrap1"><img src="https://img.youtube.com/vi/ycjh9GKRnFk/2.jpg" alt=""></a></figure>
+					<div>
+					  <time><a href="/cerca?s=Caga+Tió" class="link2">Caga Tió</a></time><br>
+					 Frosinor85
+					</div>
+				  </li>
+				</ul>
+			  </div>
+			</article>
+		  </div>
+		</div>
+	  </div>
+	</section>
+<!--==============================footer=================================-->
+	<footer>
+	  <div class="container_12">
+		<div class="pad_box">
+		  <div class="wrapper">
+			<article class="grid_12">
+			  <div class="footer">
+				<ul class="footer_menu">
+				  <li class="current"><a href="/">Inici</a></li>
+				  <li><a href="/comunitat">Comunitat</a></li>
+				  <!--<li><a href="/diccionari">Tot el vocabulari</a></li>-->
+
+				</ul>
+				<div class="privacy">
+				  Signepèdia  &copy; 2018 &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/privadesa">Política de Privadesa </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/condicions">Condicions d'ús.</a>
+				</div>
+			  </div>
+			</article>
+		  </div>
+		</div>
+	  </div>
+	</footer>
+  </div>
+</div>
+</body>
 </html>

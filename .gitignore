@@ -1,12 +1,7 @@
 *.sw[a-p]
 *.pyc
 
-backend/mod_password
-backend/dades_mysql.json
-backend/mysql_data.json
+backend/private
 
 frontend/node_modules
 frontend/package-lock.json
-
-.Rproj.user
-scripts/*

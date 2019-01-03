@@ -1,49 +1,34 @@
 # [Signepedia](http://signepedia.cat) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a35eacf1879e41b7b5e5c330f37b3e22)](https://www.codacy.com/app/masclins/signepedia?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Masclins/signepedia&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a35eacf1879e41b7b5e5c330f37b3e22)](https://www.codacy.com/app/masclins/signepedia?utm_source=github.com&utm_medium=referral&utm_content=Masclins/signepedia&utm_campaign=Badge_Coverage) [![CodeFactor](https://www.codefactor.io/repository/github/masclins/signepedia/badge)](https://www.codefactor.io/repository/github/masclins/signepedia)
-Dicionari cooperatiu i gratuït de català - Llengua de Signes Catalana (LSC).
+Free and collaborative Catalan - Catalan Sign Language (LSC) Dictionary.
 
-## Objectiu
-Crear un diccionari col·laboratiu gratuït Català - LSC accessible des de navegador i aplicació mòbil.
+## Our mission
+We want to create a free and collaborative dictionary to translate from catalan to LSC, and make it accessible from both web browser and app.
 
-Estudiant LSC hem observat que resulta manquen plataformes que continguin una quantitat suficientment gran de vocabulari com per poder ser un diccionari de referència. La intenció és recollir el que poguem i, sobretot, crear una plataforma on sigui fàcil i còmode, tant consultar el vocabulari com penjar-hi nous vídeos.
+This comes after studying LSC and realizing there's no platform with sufficient vocabulary to be used as a reference. From there we undertook the mission to create such a tool, so it can grow along with people interested in LSC.
+For that, Signepedia must allow users to post new videos and edit the existing ones, making sure every entry is correct and up to date.
 
-Entenem aquesta eina com un suport a l'aprenentatge de la LSC, no com un metodologia en si mateixa.
+We understand this as a supporting learning tool, not a methodoligy on itself that teaches LSC.
 
-## Col·laborar
-Qualsevol comentari a les [Issues](https://github.com/Masclins/signepedia/issues?q=is%3Aissue+is%3Aopen+label%3Adiscussi%C3%B3) amb l'etiqueta *discussió* serà molt ben rebut i d'ajuda pel projecte.
+Also, our dream is to make Signepedia as little language-dependant as possible so it can be used for any Sign Language that has a community willing to create new content.
 
-Per una col·laboració més activa es recomana llegir el document [`docs/CONTRIBUTING.md`](https://github.com/Masclins/signepedia/blob/nou-csv/docs/CONTRIBUTING.md).
+## Collaborate with the project
+Best way to collaborate is to use the [Signepedia](http://signepedia.cat).
 
-## Ús
-L'aplicació és accesible en l'estat de la branca de l'última Release a http://signepedia.cat.
+But if you are here, you are probably looking for a deeper form of collaboration. We need many people to make this project work:
 
-### Desenvolupament
+- Check the [Issues](https://github.com/Masclins/signepedia/issues?q=is%3Aissue+is%3Aopen) and give your oppinion regarding enything being discussed.
+- Create new Issues if you see a problem or a missing feature for which there's no Issue already.
+- And if you want to develop, you'll be **really** welcomed. Best way to start is to read the [documentation for contributing](https://github.com/Masclins/signepedia/blob/develop/docs/CONTRIBUTING.md).
 
-Per fer servir la versió en local, cal instal·lar [Docker](https://store.docker.com/search?type=edition&offering=community) i clonar el repositori (`git clone https://github.com/Masclins/signepedia`).
+## Language
+The official language for this project is english. Even though, when the project begun we used catalan for everything.
+We apologize for any Issue, Comment, Pull-Request or anything else that you might find not in english.
+Do not hesitate to open an Issue or create a Comment for anything that you don't understand because it's not written in english.
 
-Si per les proves locals necessits accés a la base de dades, envia un mail a signepedia@gmail.com. Cal crear l'arxiu `mysql_data.json`.
-En aquest arxiu ha d'haver-hi:
-```json
-{
-    "user": USUARI,
-    "password": CONTRASENYA,
-    "host": IP.DB,
-    "database": DB.NAME
-}
-```
+## Questions and comments
+Any question or comment for which you feel creating an Issue doesn't apply, can be send to our mail: signepedia@gmail.com
 
-Cal tenir una terminal executant `docker-compose up --build` des de la carpeta del projecte.
-L'aplicació és accessible des del navegador, a `localhost`.
-
-Per permetre la pujada de vídeos des del frontend cal autoritzar l'aplicació a fer servir l'API de YouTube mitjançant oauth2.
-Les instruccions es troben a https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps.
-Un cop autoritzada l'aplicació, només cal enviar la petició d'autorització fent servir les claus.
-
-## Dubtes i comentaris
-
-Pots enviar qualsevol dubte o comentari al correu de la Signepèdia: signepedia@gmail.com
-
-## Llicència
-
+## License
 Copyright © 2018 Albert Masclans
 
-Distribuït sota MIT License.
+Distributed under MIT License.

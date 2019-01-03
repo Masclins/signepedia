@@ -1,0 +1,128 @@
+nav{
+  position:relative;
+  margin: 0 0 0 0;
+  padding: 10px 0 10px 10px;
+  border-bottom: 1px solid #e3e3e3;
+  border-radius: 6px 6px 0 0;
+  background: url('../images/nav_bg.png') repeat-x #fdfdfd;
+}
+.sf-menu ul {position:absolute;top:-999px; display:none;/* left offset of submenus need to match (see below) */}
+.sf-menu ul li {width:100%}
+.sf-menu li {float:left;position:relative}
+
+.sf-menu>li>a{
+  display:block;
+  position:relative;
+  font-size: 21px;
+  line-height: 25px;
+  color:#353434;
+  font-weight: bold;
+  padding: 8px 12px 10px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.sf-menu>li>a:hover,.sf-menu>li.current>a,.sf-menu>li.sfHover>a{
+  color: #fff;
+}
+
+.sf-menu>li:hover,.sf-menu>li.current,.sf-menu>li.sfHover{
+  background-color: #46aa0e;
+  background-position: 0 0;
+}
+.sf-menu>li{
+  background: url('../images/nav_li_bg.png') 0 -80px repeat-x;
+  border-radius: 3px;
+  margin-left: 22px;
+}
+.sf-menu>li.first{
+  margin-left: 0;
+}
+.sf-menu>li.first:before{
+  display: none;
+}
+.sf-menu>li:before{
+  display: block;
+  width: 1px;
+  pointer-events: none;
+  background: #dfdfdf;
+  height: 52px;
+  position: absolute;
+  left: -10px;
+  top: 0;
+  content: "";
+}
+
+/*================================>> 2 Level <<========================================*/
+.sf-menu>li>ul,.sf-menu>li.sfHover>ul{left:0;top:53px;width: 161px;padding:1px 0 2px; border-radius: 4px; z-index:99;background: #353434;}
+.sf-menu>li>ul>li{border-bottom: 1px solid #4c4a4a;}
+.sf-menu>li>ul>li>a{color: #b2b2b2;display: block;padding: 7px 20px 9px;font-size: 12px;font-family: Arial, Helvetica, sans-serif;}
+.sf-menu li li a:hover, .sf-menu li.sfHover li.sfHover>a{color: #fff;}
+
+/*================================>> 3 Level <<========================================*/
+.sf-menu li li ul{left:0;top:0;width: px;padding:0 0 0 0;z-index:99}
+
+
+	 .sf-menu li a .menu-arrow{
+    display:block;
+    width:7px;
+    height:7px;
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    text-indent:-100%;
+    font-size:0;
+    line-height:0;
+    background: url('../images/menu_arrow.png') no-repeat;
+    vertical-align: middle;
+}
+	 .sf-menu a:hover .menu-arrow, .sf-menu>li.current>a .menu-arrow, .sf-menu .sfHover>a:hover .menu-arrow, .sf-menu li.sfHover>a .menu-arrow{
+    background-position:0 -7px;
+   }
+.sf-menu li li a>.menu-arrow{
+  left: auto;
+  right: 20px;
+  bottom: 13px;
+  background: url('../images/menu_arrow2.png') no-repeat;
+}
+/*==================================RESPONSIVE LAYOUTS===============================================*/
+@media only screen and (max-width: 995px) {
+  .sf-menu>li{
+    margin-left: 10px;
+  }
+  .sf-menu>li:before{
+    left: -5px;
+  }
+  .sf-menu>li>a{
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  nav{
+		float:none;
+		font:12px/15px Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		color:#fff;
+		padding:20px 10px;
+	}
+		nav:before{
+			content:'Menu:';
+			display:block;
+			margin-bottom:5px;
+		}
+	.sf-menu{display:none;}
+	nav select{
+		font:12px/15px Arial, Helvetica, sans-serif;
+		color:#464646;
+		width:100%;
+    outline: none;
+    padding: 5px;
+		border:2px solid #379b01;
+	}
+	
+}
+
+@media only screen and (max-width: 479px) {
+	
+}

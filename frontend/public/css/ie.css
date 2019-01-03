@@ -1,0 +1,6 @@
+.sf-menu>li, .white_bg, nav, .time, #search a{behavior:url(js/PIE.htc);position:relative;}
+.sf-menu ul{behavior:url(js/PIE.htc);}
+.sf-menu>li>a{
+  letter-spacing: -1px;
+  max-width: 112px;
+}
