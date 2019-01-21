@@ -37,7 +37,11 @@ app.get("/privadesa", function(req, res) {
     res.render("privadesa");
 });
 
+// Search a word and render it's page.
 app.get("/cerca", handler.search);
+
+// Register a new user.
+app.post("/registre", handler.newUser);
 
 app.listen(8080, function() {
 });
